@@ -1,0 +1,15 @@
+server:
+  port: 8089
+spring:
+  application:
+    name: app
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/db_test
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
