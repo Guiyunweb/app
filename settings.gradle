@@ -1,1 +1,8 @@
 rootProject.name = 'app'
+
+include 'start'
+include 'app-web'
+include 'app-api'
+include 'app-service'
+include 'app-manager'
+include 'app-dao'
