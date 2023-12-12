@@ -6,3 +6,5 @@ include 'app-api'
 include 'app-service'
 include 'app-manager'
 include 'app-dao'
+include 'app-internal'
+
