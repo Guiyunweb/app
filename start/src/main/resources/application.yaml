@@ -13,3 +13,12 @@ spring:
     hibernate:
       ddl-auto: update
 
+
+auth:
+  token:
+    expire-time: 30000
+    secret: abcdefghijklmnopqrstuvwxyz
+    header: Authorization
+  ignored:
+    urls:
+      - /auth/login

@@ -19,5 +19,10 @@ public class TestController {
         return "你好," + name;
     }
 
+    @RequestMapping("/test2")
+    public String test2() {
+        return "你好,Test2";
+    }
+
 
 }
