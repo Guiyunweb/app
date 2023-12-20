@@ -31,8 +31,10 @@ dependencies {
     implementation project(':app-dao')
     implementation project(':app-manager')
     implementation project(':app-api')
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation project(':app-internal')
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
 test {

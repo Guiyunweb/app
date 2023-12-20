@@ -6,6 +6,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.filter.CorsFilter;
+import plus.guiyun.app.framework.security.filter.JwtAuthenticationTokenFilter;
 import plus.guiyun.app.framework.security.handle.AuthenticationEntryPointImpl;
 
 @Configuration
@@ -13,6 +16,9 @@ public class SecurityConfig {
 
     @Autowired
     private AuthenticationEntryPointImpl unauthorizedHandler;
+
+    @Autowired
+    private JwtAuthenticationTokenFilter authenticationTokenFilter;
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -25,10 +31,11 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 // 过滤请求
                 .authorizeHttpRequests()
-                .requestMatchers("/test").anonymous()
+                .requestMatchers(IgnoreUrlsConfig.urls).anonymous()
                 .anyRequest().authenticated().and()
                 .headers().frameOptions().disable();
 
+        http.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }

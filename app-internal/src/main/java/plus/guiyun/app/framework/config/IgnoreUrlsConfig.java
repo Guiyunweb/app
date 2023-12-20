@@ -16,14 +16,14 @@ import java.util.List;
 public class IgnoreUrlsConfig {
 
     // 匿名url
-    public static List<String> urls = new ArrayList<>();
+    public static String[] urls = {};
 
 
-    public List<String> getUrls() {
+    public String[] getUrls() {
         return urls;
     }
 
-    public void setUrls(List<String> urls) {
+    public void setUrls(String[]urls) {
         IgnoreUrlsConfig.urls = urls;
     }
 }

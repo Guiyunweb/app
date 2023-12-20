@@ -5,16 +5,28 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import plus.guiyun.app.common.code.domain.model.LoginUser;
+import plus.guiyun.app.common.code.redis.RedisCache;
 import plus.guiyun.app.common.constant.CacheConstants;
 import plus.guiyun.app.common.constant.Constants;
 import plus.guiyun.app.common.utils.StringUtils;
 import plus.guiyun.app.common.utils.uuid.IdUtils;
+import plus.guiyun.app.framework.config.RedisConfig;
 import plus.guiyun.app.framework.config.TokenConfig;
+
+import java.util.concurrent.TimeUnit;
 
 @Component
 public class TokenService {
+
+    @Autowired
+    RedisCache redisCache;
+
+    protected static final long MILLIS_SECOND = 1000;
+
+    protected static final long MILLIS_MINUTE = 60 * MILLIS_SECOND;
 
 
     /**
@@ -45,7 +57,8 @@ public class TokenService {
             DecodedJWT decodedJWT = parseToken(token);
             String uuid = decodedJWT.getClaim(Constants.LOGIN_USER_KEY).asString();
             String userKey = getTokenKey(uuid);
-            // TODO Redis 验证
+            LoginUser user = redisCache.getCacheObject(userKey);
+            return user;
         }
         return null;
     }
@@ -70,7 +83,11 @@ public class TokenService {
      * @param loginUser 登录信息
      */
     public void refreshToken(LoginUser loginUser) {
-        // TODO Redis
+        loginUser.setLoginTime(System.currentTimeMillis());
+        loginUser.setExpireTime(loginUser.getLoginTime() + TokenConfig.expireTime * MILLIS_MINUTE);
+        // 根据uuid将loginUser缓存
+        String userKey = getTokenKey(loginUser.getToken());
+        redisCache.setCacheObject(userKey, loginUser, TokenConfig.expireTime, TimeUnit.MINUTES);
     }
 
     /**

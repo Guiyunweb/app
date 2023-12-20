@@ -30,6 +30,7 @@ jar {
 dependencies {
 
     implementation project(':app-dao')
+    implementation project(':app-internal')
     implementation 'org.springframework.boot:spring-boot-starter'
     annotationProcessor 'org.projectlombok:lombok'
 }
