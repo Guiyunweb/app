@@ -5,18 +5,32 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import plus.guiyun.app.common.code.domain.entity.BaseUser;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "tb_user")
-public class UserDo {
+public class UserDo extends BaseUser {
 
     @Id
     @GeneratedValue
     private Long id;
-    private String name;
-    private Integer age;
+    /**
+     * 账户名
+     */
+    private String account;
+
+    /**
+     * 用户名称
+     */
+    private String username;
+
+    /**
+     * 密码
+     */
     private String password;
 
 }

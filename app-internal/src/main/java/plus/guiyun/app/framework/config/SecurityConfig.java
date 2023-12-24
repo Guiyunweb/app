@@ -3,14 +3,13 @@ package plus.guiyun.app.framework.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.server.SecurityWebFilterChain;
-import org.springframework.web.filter.CorsFilter;
 import plus.guiyun.app.framework.security.filter.JwtAuthenticationTokenFilter;
 import plus.guiyun.app.framework.security.handle.AuthenticationEntryPointImpl;
 
@@ -23,10 +22,14 @@ public class SecurityConfig {
     @Autowired
     private JwtAuthenticationTokenFilter authenticationTokenFilter;
 
+    @Autowired
+    private AuthenticationConfiguration authenticationConfiguration;
+
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
 
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -47,4 +50,12 @@ public class SecurityConfig {
         http.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
+
+    @Bean
+    public AuthenticationManager authenticationManager() throws Exception {
+        AuthenticationManager authenticationManager = authenticationConfiguration.getAuthenticationManager();
+        return authenticationManager;
+    }
+
+
 }

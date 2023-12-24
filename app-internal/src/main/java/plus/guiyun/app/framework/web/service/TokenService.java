@@ -13,7 +13,6 @@ import plus.guiyun.app.common.constant.CacheConstants;
 import plus.guiyun.app.common.constant.Constants;
 import plus.guiyun.app.common.utils.StringUtils;
 import plus.guiyun.app.common.utils.uuid.IdUtils;
-import plus.guiyun.app.framework.config.RedisConfig;
 import plus.guiyun.app.framework.config.TokenConfig;
 
 import java.util.concurrent.TimeUnit;
@@ -35,14 +34,18 @@ public class TokenService {
      * @param loginUser 登录信息
      * @return token
      */
-    private String createToken(LoginUser loginUser) {
+    public String createToken(LoginUser loginUser) {
+        loginUser.setLoginTime(System.currentTimeMillis());
+        loginUser.setExpireTime(loginUser.getLoginTime() + TokenConfig.expireTime * MILLIS_MINUTE);
         String uuid = IdUtils.fastUUID();
+        String userKey = getTokenKey(uuid);
         loginUser.setToken(uuid);
         Algorithm algorithm = Algorithm.HMAC512(TokenConfig.secret);
         String token = JWT.create()
                 .withIssuer(loginUser.getAccount())
                 .withClaim(Constants.LOGIN_USER_KEY, uuid)
                 .sign(algorithm);
+        redisCache.setCacheObject(userKey, loginUser, TokenConfig.expireTime, TimeUnit.MINUTES);
         return token;
     }
 
