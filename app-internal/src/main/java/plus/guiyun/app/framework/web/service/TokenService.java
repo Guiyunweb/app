@@ -36,7 +36,6 @@ public class TokenService {
      */
     public String createToken(LoginUser loginUser) {
         loginUser.setLoginTime(System.currentTimeMillis());
-        loginUser.setExpireTime(loginUser.getLoginTime() + TokenConfig.expireTime * MILLIS_MINUTE);
         String uuid = IdUtils.fastUUID();
         String userKey = getTokenKey(uuid);
         loginUser.setToken(uuid);
@@ -66,19 +65,6 @@ public class TokenService {
         return null;
     }
 
-    /**
-     * 验证令牌有效期，自动刷新缓存
-     *
-     * @param loginUser
-     * @return 令牌
-     */
-    public void verifyToken(LoginUser loginUser) {
-        long expireTime = loginUser.getExpireTime();
-        long currentTime = System.currentTimeMillis();
-        if (expireTime - currentTime <= TokenConfig.expireTime) {
-            refreshToken(loginUser);
-        }
-    }
 
     /**
      * 刷新令牌有效期
@@ -87,7 +73,6 @@ public class TokenService {
      */
     public void refreshToken(LoginUser loginUser) {
         loginUser.setLoginTime(System.currentTimeMillis());
-        loginUser.setExpireTime(loginUser.getLoginTime() + TokenConfig.expireTime * MILLIS_MINUTE);
         // 根据uuid将loginUser缓存
         String userKey = getTokenKey(loginUser.getToken());
         redisCache.setCacheObject(userKey, loginUser, TokenConfig.expireTime, TimeUnit.MINUTES);

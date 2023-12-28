@@ -6,6 +6,6 @@ public interface UserService {
 
     String getUserName(Long id);
 
-    LoginUser login(String username, String password);
+    LoginUser login(String account, String password);
 
 }

@@ -40,12 +40,6 @@ public class LoginUser implements UserDetails {
     private BaseUser user;
 
 
-    /**
-     * 过期时间
-     */
-    private Long expireTime;
-
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
