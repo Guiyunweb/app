@@ -1,5 +1,7 @@
 package plus.guiyun.app.common.code.domain.model;
 
+import jakarta.validation.constraints.NotNull;
+
 /**
  * 用户登录对象
  *
@@ -10,12 +12,14 @@ public class LoginBody {
     /**
      * 用户名
      */
+    @NotNull(message = "用户名不能为空")
     private String account;
 
 
     /**
      * 用户密码
      */
+    @NotNull(message = "密码不能为空")
     private String password;
 
     /**
