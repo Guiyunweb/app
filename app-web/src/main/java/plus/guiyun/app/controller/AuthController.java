@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import plus.guiyun.app.api.UserService;
-import plus.guiyun.app.common.code.domain.Result;
-import plus.guiyun.app.common.code.domain.SuccessResult;
+import plus.guiyun.app.common.code.domain.AjaxResult;
 import plus.guiyun.app.common.code.domain.model.LoginBody;
 import plus.guiyun.app.common.code.domain.model.LoginUser;
 
@@ -19,9 +18,9 @@ public class AuthController {
     UserService userService;
 
     @RequestMapping("/login")
-    public Result<LoginUser> getUserName(@RequestBody @Valid LoginBody loginBody) {
+    public AjaxResult<LoginUser> getUserName(@RequestBody @Valid LoginBody loginBody) {
         LoginUser loginUser = userService.login(loginBody.getAccount(), loginBody.getPassword());
-        return new SuccessResult<>("登录成功", loginUser);
+        return AjaxResult.showSuccess(loginUser, "登录成功");
     }
 
 }

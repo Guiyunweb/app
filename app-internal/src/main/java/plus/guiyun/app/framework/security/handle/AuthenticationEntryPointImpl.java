@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
-import plus.guiyun.app.common.code.domain.ErrorResultData;
+import plus.guiyun.app.common.code.domain.AjaxResult;
 import plus.guiyun.app.common.constant.HttpStatus;
 import plus.guiyun.app.common.utils.ServletUtils;
 
@@ -18,7 +18,7 @@ public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint, S
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        ErrorResultData resultData = new ErrorResultData(HttpStatus.UNAUTHORIZED, "认证失败，无法访问系统资源");
+        AjaxResult resultData = AjaxResult.errorShow("认证失败，请重新登录",HttpStatus.UNAUTHORIZED);
         ServletUtils.renderString(response, resultData.toString());
     }
 }

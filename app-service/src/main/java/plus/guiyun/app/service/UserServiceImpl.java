@@ -1,7 +1,6 @@
 package plus.guiyun.app.service;
 
 import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -22,8 +21,11 @@ public class UserServiceImpl implements UserService {
     @Resource
     private AuthenticationManager authenticationManager;
 
-    @Autowired
-    private TokenService tokenService;
+    private final TokenService tokenService;
+
+    public UserServiceImpl(TokenService tokenService) {
+        this.tokenService = tokenService;
+    }
 
 
     @Override
