@@ -42,6 +42,6 @@ public interface CrudService<T, ID> {
      *
      * @param ids
      */
-    void deleteAllById(Iterable<? extends ID> ids);
+    void deleteAllById(ID[] ids);
 
 }

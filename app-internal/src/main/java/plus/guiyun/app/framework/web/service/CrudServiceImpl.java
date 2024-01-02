@@ -6,6 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import plus.guiyun.app.common.utils.JpaUtil;
 
+import java.util.List;
+
 public class CrudServiceImpl<R extends JpaRepository<T, ID>, T, ID> implements CrudService<T, ID> {
 
     private final R repository;
@@ -45,11 +47,11 @@ public class CrudServiceImpl<R extends JpaRepository<T, ID>, T, ID> implements C
     @Override
     public Page<T> find(T entity, Pageable pageable) {
         Example<T> example = Example.of(entity);
-        return repository.findAll(example,pageable);
+        return repository.findAll(example, pageable);
     }
 
     @Override
-    public void deleteAllById(Iterable<? extends ID> ids) {
-        repository.deleteAllById(ids);
+    public void deleteAllById(ID[] ids) {
+        repository.deleteAllByIdInBatch(List.of(ids));
     }
 }

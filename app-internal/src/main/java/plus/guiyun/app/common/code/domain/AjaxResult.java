@@ -57,6 +57,10 @@ public class AjaxResult<T> {
         this.encrypt = encrypt;
     }
 
+    public static <T> AjaxResult<T> success() {
+        return new AjaxResult<T>(true, HttpStatus.SUCCESS, "请求成功", null, traceID(), false, false);
+    }
+
     public static <T> AjaxResult<T> success(T data) {
         return new AjaxResult<T>(true, HttpStatus.SUCCESS, "请求成功", data, traceID(), false, false);
     }

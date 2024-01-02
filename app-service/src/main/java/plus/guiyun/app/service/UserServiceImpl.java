@@ -1,10 +1,12 @@
 package plus.guiyun.app.service;
 
 import jakarta.annotation.Resource;
+import org.springframework.beans.BeanUtils;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import plus.guiyun.app.api.UserService;
+import plus.guiyun.app.common.code.domain.entity.BaseUser;
 import plus.guiyun.app.common.code.domain.model.LoginUser;
 import plus.guiyun.app.common.exception.ServiceException;
 import plus.guiyun.app.common.utils.SecurityUtils;
@@ -46,7 +48,10 @@ public class UserServiceImpl implements UserService {
         userDo.setPassword(null);
 
         LoginUser loginUser = new LoginUser();
-        loginUser.setUser(userDo);
+        BaseUser user = new BaseUser();
+        BeanUtils.copyProperties(userDo, user);
+
+        loginUser.setUser(user);
         loginUser.setId(userDo.getId());
         loginUser.setToken(tokenService.createToken(loginUser));
         return loginUser;
