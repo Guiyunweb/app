@@ -1,5 +1,6 @@
 package plus.guiyun.app.framework.web.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -8,13 +9,10 @@ import plus.guiyun.app.common.utils.JpaUtil;
 
 import java.util.List;
 
-public class CrudServiceImpl<R extends JpaRepository<T, ID>, T, ID> implements CrudService<T, ID> {
+public class CurdServiceImpl<R extends JpaRepository<T, ID>, T, ID> implements CurdService<T, ID> {
 
-    private final R repository;
-
-    public CrudServiceImpl(R repository) {
-        this.repository = repository;
-    }
+    @Autowired
+    private R repository;
 
     @Override
     public T save(T entity) {

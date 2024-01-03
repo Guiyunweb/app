@@ -1,12 +1,13 @@
 package plus.guiyun.app.framework.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import plus.guiyun.app.common.code.domain.AjaxResult;
 import plus.guiyun.app.common.code.domain.Pagination;
-import plus.guiyun.app.framework.web.service.CrudService;
+import plus.guiyun.app.framework.web.service.CurdService;
 
 
 /**
@@ -16,13 +17,10 @@ import plus.guiyun.app.framework.web.service.CrudService;
  * @param <T>  实体
  * @param <ID> 主键类型
  */
-public class CurdController<S extends CrudService<T, ID>, T, ID> {
+public class CurdController<S extends CurdService<T, ID>, T, ID> {
 
-    private final S service;
-
-    public CurdController(S service) {
-        this.service = service;
-    }
+    @Autowired
+    private S service;
 
     @GetMapping("/list")
     public AjaxResult<Pagination<T>> list(Pagination<T> pagination, T t) {

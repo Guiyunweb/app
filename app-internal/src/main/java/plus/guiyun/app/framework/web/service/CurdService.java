@@ -3,7 +3,7 @@ package plus.guiyun.app.framework.web.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface CrudService<T, ID> {
+public interface CurdService<T, ID>  {
 
     /**
      * 保存

@@ -4,18 +4,11 @@ import java.util.List;
 
 public class Pagination<T> {
 
-    public Pagination(Integer current, Integer size, Long total, List<T> page) {
-        this.total = total;
-        this.pageSize = size;
-        this.currentPage = current;
-        this.page = page;
-    }
-
     protected Long total;
 
-    protected Integer pageSize;
+    protected Integer pageSize = 10;
 
-    protected Integer currentPage;
+    protected Integer currentPage = 1;
 
     protected List<T> page;
     public Long getTotal() {
@@ -35,7 +28,7 @@ public class Pagination<T> {
     }
 
     public Integer getCurrentPage() {
-        return currentPage;
+        return currentPage -1;
     }
 
     public void setCurrentPage(Integer currentPage) {

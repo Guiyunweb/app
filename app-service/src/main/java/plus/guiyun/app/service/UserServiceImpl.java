@@ -2,6 +2,7 @@ package plus.guiyun.app.service;
 
 import jakarta.annotation.Resource;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
@@ -11,11 +12,12 @@ import plus.guiyun.app.common.code.domain.model.LoginUser;
 import plus.guiyun.app.common.exception.ServiceException;
 import plus.guiyun.app.common.utils.SecurityUtils;
 import plus.guiyun.app.domain.UserDo;
+import plus.guiyun.app.framework.web.service.CurdServiceImpl;
 import plus.guiyun.app.framework.web.service.TokenService;
 import plus.guiyun.app.repository.UserRepository;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends CurdServiceImpl<UserRepository, UserDo, Long> implements UserService {
 
     @Resource
     UserRepository repository;
@@ -23,11 +25,8 @@ public class UserServiceImpl implements UserService {
     @Resource
     private AuthenticationManager authenticationManager;
 
-    private final TokenService tokenService;
-
-    public UserServiceImpl(TokenService tokenService) {
-        this.tokenService = tokenService;
-    }
+    @Autowired
+    private TokenService tokenService;
 
 
     @Override
