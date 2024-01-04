@@ -18,7 +18,7 @@ public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint, S
 
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
-        AjaxResult resultData = AjaxResult.errorShow("认证失败，请重新登录",HttpStatus.UNAUTHORIZED);
+        AjaxResult resultData = resultData = AjaxResult.errorShow("认证失败，请重新登录", HttpStatus.UNAUTHORIZED);
         ServletUtils.renderString(response, resultData.toString());
     }
 }
