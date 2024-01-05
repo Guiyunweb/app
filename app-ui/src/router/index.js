@@ -28,7 +28,7 @@ const router = createRouter({
 document.title = config.APP_NAME
 
 //判断是否已加载过动态/静态路由
-var isGetRouter = false;
+let isGetRouter = false;
 
 router.beforeEach(async (to, from, next) => {
 
@@ -72,7 +72,7 @@ router.beforeEach(async (to, from, next) => {
 			return node.meta.role ? node.meta.role.filter(item=>userInfo.role.indexOf(item)>-1).length > 0 : true
 		})
 		let menu = [...userMenu, ...apiMenu]
-		var menuRouter = filterAsyncRouter(menu)
+		let menuRouter = filterAsyncRouter(menu)
 		menuRouter = flatAsyncRoutes(menuRouter)
 		menuRouter.forEach(item => {
 			router.addRoute("layout", item)
@@ -102,12 +102,12 @@ router.onError((error) => {
 
 //入侵追加自定义方法、对象
 router.sc_getMenu = () => {
-	var apiMenu = tool.data.get("MENU") || []
+	let apiMenu = tool.data.get("MENU") || []
 	let userInfo = tool.data.get("USER_INFO")
 	let userMenu = treeFilter(userRoutes, node => {
 		return node.meta.role ? node.meta.role.filter(item=>userInfo.role.indexOf(item)>-1).length > 0 : true
 	})
-	var menu = [...userMenu, ...apiMenu]
+	let menu = [...userMenu, ...apiMenu]
 	return menu
 }
 
@@ -122,7 +122,7 @@ function filterAsyncRouter(routerMap) {
 			item.path = `/i/${item.name}`;
 		}
 		//MAP转路由对象
-		var route = {
+		let route = {
 			path: item.path,
 			name: item.name,
 			meta: item.meta,

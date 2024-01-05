@@ -50,9 +50,9 @@
 		},
 		methods: {
 			async getData(){
-				this.loading = true
-				var res = await this.$API.system.tasks.list.get()
-				this.tasks = res.data
+				// this.loading = true
+				// var res = await this.$API.system.tasks.list.get()
+				// this.tasks = res.data
 				this.loading = false
 			},
 			refresh(){

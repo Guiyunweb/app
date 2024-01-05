@@ -88,13 +88,13 @@
 		},
 		methods: {
 			async getYzm(){
-				var validate = await this.$refs.form.validateField("phone").catch(()=>{})
+				let validate = await this.$refs.form.validateField("phone").catch(()=>{})
 				if(!validate){ return false }
 
 				this.$message.success("已发送短信至手机号码")
 				this.disabled = true
 				this.time = 60
-				var t = setInterval(() => {
+				let t = setInterval(() => {
 					this.time -= 1
 					if(this.time < 1){
 						clearInterval(t)
@@ -104,7 +104,7 @@
 				},1000)
 			},
 			async save(){
-				var validate = await this.$refs.form.validate().catch(()=>{})
+				let validate = await this.$refs.form.validate().catch(()=>{})
 				if(!validate){ return false }
 
 				this.stepActive = 1

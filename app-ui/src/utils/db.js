@@ -76,7 +76,7 @@ const dbData = [
 export default {
 	//建立数据库，表，初始数据
 	create() {
-		var promiseArray = []
+		let promiseArray = []
 		const addDB = db => {
 			return new Promise((resolve, reject) => {
 				const request = indexedDB.open(db.dbName, db.version)

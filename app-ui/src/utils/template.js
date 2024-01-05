@@ -6,7 +6,7 @@
  */
 /* eslint-disable */
 ;(function(root, factory) {
-    var template = factory(root);
+    let template = factory(root);
     if (typeof define === 'function' && define.amd) {
         // AMD
         define('template', function() {
@@ -17,7 +17,7 @@
         module.exports = template;
     } else {
         // Browser globals
-        var _template = root.template;
+        let _template = root.template;
 
         template.noConflict = function() {
             if (root.template === template) {
@@ -30,35 +30,35 @@
     }
 }(this, function(root) {
     'use strict';
-    var o = {
+    let o = {
         sTag: '<%',//开始标签
         eTag: '%>',//结束标签
         compress: false,//是否压缩html
         escape: true, //默认输出是否进行HTML转义
         error: function (e) {}//错误回调
     };
-    var functionMap = {}; //内部函数对象
+    let functionMap = {}; //内部函数对象
     //修饰器前缀
-    var modifierMap = {
+    let modifierMap = {
         '': function (param) {return nothing(param)},
         'h': function (param) {return encodeHTML(param)},
         'u': function (param) {return encodeURI(param)}
     };
 
-    var toString = {}.toString;
-    var slice = [].slice;
+    let toString = {}.toString;
+    let slice = [].slice;
     function type(x) {
         if(x === null){
             return 'null';
         }
 
-        var t= typeof x;
+        let t= typeof x;
 
         if(t !== 'object'){
             return t;
         }
 
-        var c = toString.call(x).slice(8, -1).toLowerCase();
+        let c = toString.call(x).slice(8, -1).toLowerCase();
         if(c !== 'object'){
             return c;
         }
@@ -80,21 +80,21 @@
         return type(str) === 'string';
     }
     function extend() {
-        var target = arguments[0] || {};
-        var arrs = slice.call(arguments, 1);
-        var len = arrs.length;
-     
-        for (var i = 0; i < len; i++) {
-            var arr = arrs[i];
-            for (var name in arr) {
+        let target = arguments[0] || {};
+        let arrs = slice.call(arguments, 1);
+        let len = arrs.length;
+
+        for (let i = 0; i < len; i++) {
+            let arr = arrs[i];
+            for (let name in arr) {
                 target[name] = arr[name];
             }
-     
+
         }
         return target;
     }
     function clone() {
-        var args = slice.call(arguments);
+        let args = slice.call(arguments);
         return extend.apply(null, [{}].concat(args));
     }
     function nothing(param) {
@@ -116,9 +116,9 @@
         typeof console !== 'undefined' && console[cmd] && console[cmd](msg);
     }
     function handelError(e) {
-        var message = 'template.js error\n\n';
+        let message = 'template.js error\n\n';
 
-        for (var key in e) {
+        for (let key in e) {
             message += '<' + key + '>\n' + e[key] + '\n\n';
         }
         message += '<message>\n' + e.message + '\n\n';
@@ -134,26 +134,26 @@
         return error;
     }
     function parse(tpl, opt) {
-        var code = '';
-        var sTag = opt.sTag;
-        var eTag = opt.eTag;
-        var escape = opt.escape;
+        let code = '';
+        let sTag = opt.sTag;
+        let eTag = opt.eTag;
+        let escape = opt.escape;
         function parsehtml(line) {
             // 单双引号转义，换行符替换为空格
             line = line.replace(/('|")/g, '\\$1');
-            var lineList = line.split('\n');
-            var code = '';
-            for (var i = 0; i < lineList.length; i++) {
+            let lineList = line.split('\n');
+            let code = '';
+            for (let i = 0; i < lineList.length; i++) {
                 code += ';__code__ += ("' + lineList[i] + (i === lineList.length - 1 ? '")\n' : '\\n")\n');
             }
             return code;
         }
-        function parsejs(line) {              
-            //var reg = /^(:?)(.*?)=(.*)$/;
-            var reg = /^(?:=|(:.*?)=)(.*)$/
-            var html;
-            var arr;
-            var modifier;
+        function parsejs(line) {
+            //let reg = /^(:?)(.*?)=(.*)$/;
+            let reg = /^(?:=|(:.*?)=)(.*)$/
+            let html;
+            let arr;
+            let modifier;
 
             // = := :*=
             // :h=123 [':h=123', 'h', '123']
@@ -169,15 +169,15 @@
 
                 return ';__code__ += __modifierMap__["' + modifier + '"](typeof (' + html + ') !== "undefined" ? (' + html + ') : "")\n';
             }
-            
+
             //原生js
             return ';' + line + '\n';
         }
 
-        var tokens = tpl.split(sTag);
+        let tokens = tpl.split(sTag);
 
-        for (var i = 0, len = tokens.length; i < len; i++) {
-            var token = tokens[i].split(eTag);
+        for (let i = 0, len = tokens.length; i < len; i++) {
+            let token = tokens[i].split(eTag);
 
             if (token.length === 1) {
                 code += parsehtml(token[0]);
@@ -191,25 +191,25 @@
         return code;
     }
     function compiler(tpl, opt) {
-        var mainCode = parse(tpl, opt);
+        let mainCode = parse(tpl, opt);
 
-        var headerCode = '\n' + 
-        '    var html = (function (__data__, __modifierMap__) {\n' + 
-        '        var __str__ = "", __code__ = "";\n' + 
-        '        for(var key in __data__) {\n' + 
-        '            __str__+=("var " + key + "=__data__[\'" + key + "\'];");\n' + 
-        '        }\n' + 
+        let headerCode = '\n' +
+        '    let html = (function (__data__, __modifierMap__) {\n' +
+        '        let __str__ = "", __code__ = "";\n' +
+        '        for(let key in __data__) {\n' +
+        '            __str__+=("let " + key + "=__data__[\'" + key + "\'];");\n' +
+        '        }\n' +
         '        eval(__str__);\n\n';
 
-        var footerCode = '\n' + 
-        '        ;return __code__;\n' + 
-        '    }(__data__, __modifierMap__));\n' + 
+        let footerCode = '\n' +
+        '        ;return __code__;\n' +
+        '    }(__data__, __modifierMap__));\n' +
         '    return html;\n';
 
-        var code = headerCode + mainCode + footerCode;
+        let code = headerCode + mainCode + footerCode;
         code = code.replace(/[\r]/g, ' '); // ie 7 8 会报错，不知道为什么
         try {
-            var Render = new Function('__data__', '__modifierMap__', code); 
+            let Render = new Function('__data__', '__modifierMap__', code);
             Render.toString = function () {
                 return mainCode;
             }
@@ -217,13 +217,13 @@
         } catch(e) {
             e.temp = 'function anonymous(__data__, __modifierMap__) {' + code + '}';
             throw e;
-        }  
+        }
     }
     function compile(tpl, opt) {
         opt = clone(o, opt);
 
         try {
-            var Render = compiler(tpl, opt);
+            let Render = compiler(tpl, opt);
         } catch(e) {
             e.name = 'CompileError';
             e.tpl = tpl;
@@ -235,7 +235,7 @@
         function render(data) {
             data = clone(functionMap, data);
             try {
-                var html = Render(data, modifierMap);
+                let html = Render(data, modifierMap);
                 html = opt.compress ? compress(html) : html;
                 return html;
             } catch(e) {
@@ -243,7 +243,7 @@
                 e.tpl = tpl;
                 e.render = Render.toString();
                 return handelError(e)();
-            }            
+            }
         }
 
         render.toString = function () {
@@ -256,7 +256,7 @@
             return '';
         }
 
-        var fn = compile(tpl);
+        let fn = compile(tpl);
         if (!isObject(data)) {
             return fn;
         }

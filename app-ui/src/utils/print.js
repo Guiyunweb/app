@@ -11,7 +11,7 @@ const Print = function(dom, options) {
 		try{
 			this.dom = document.querySelector(dom);
 		}catch{
-			var createDom = document.createElement("div")
+			let createDom = document.createElement("div")
 				createDom.innerHTML = dom
 			this.dom = createDom;
 		};
@@ -24,20 +24,20 @@ const Print = function(dom, options) {
 };
 Print.prototype = {
 	init: function() {
-		var content = this.getStyle() + this.getHtml();
+		let content = this.getStyle() + this.getHtml();
 		this.writeIframe(content);
 	},
 	extend: function(obj, obj2) {
-		for (var k in obj2) {
+		for (let k in obj2) {
 			obj[k] = obj2[k];
 		}
 		return obj;
 	},
 
 	getStyle: function() {
-		var str = "",
+		let str = "",
 			styles = document.querySelectorAll('style,link');
-		for (var i = 0; i < styles.length; i++) {
+		for (let i = 0; i < styles.length; i++) {
 			str += styles[i].outerHTML;
 		}
 		str += "<style>" + (this.options.noPrint ? this.options.noPrint : '.no-print') +
@@ -47,11 +47,11 @@ Print.prototype = {
 	},
 
 	getHtml: function() {
-		var inputs = document.querySelectorAll('input');
-		var textareas = document.querySelectorAll('textarea');
-		var selects = document.querySelectorAll('select');
+		let inputs = document.querySelectorAll('input');
+		let textareas = document.querySelectorAll('textarea');
+		let selects = document.querySelectorAll('select');
 
-		for (var k = 0; k < inputs.length; k++) {
+		for (let k = 0; k < inputs.length; k++) {
 			if (inputs[k].type == "checkbox" || inputs[k].type == "radio") {
 				if (inputs[k].checked == true) {
 					inputs[k].setAttribute('checked', "checked")
@@ -65,16 +65,16 @@ Print.prototype = {
 			}
 		}
 
-		for (var k2 = 0; k2 < textareas.length; k2++) {
+		for (let k2 = 0; k2 < textareas.length; k2++) {
 			if (textareas[k2].type == 'textarea') {
 				textareas[k2].innerHTML = textareas[k2].value
 			}
 		}
 
-		for (var k3 = 0; k3 < selects.length; k3++) {
+		for (let k3 = 0; k3 < selects.length; k3++) {
 			if (selects[k3].type == 'select-one') {
-				var child = selects[k3].children;
-				for (var i in child) {
+				let child = selects[k3].children;
+				for (let i in child) {
 					if (child[i].tagName == 'OPTION') {
 						if (child[i].selected == true) {
 							child[i].setAttribute('selected', "selected")
@@ -90,7 +90,7 @@ Print.prototype = {
 	},
 
 	writeIframe: function(content) {
-		var w, doc, iframe = document.createElement('iframe'),
+		let w, doc, iframe = document.createElement('iframe'),
 			f = document.body.appendChild(iframe);
 		iframe.id = "myIframe";
 		//iframe.style = "position:absolute;width:0;height:0;top:-10px;left:-10px;";
@@ -100,7 +100,7 @@ Print.prototype = {
 		doc.open();
 		doc.write(content);
 		doc.close();
-		var _this = this
+		let _this = this
 		iframe.onload = function() {
 			_this.toPrint(w);
 			setTimeout(function() {

@@ -32,12 +32,12 @@
 			create(){
 				this.clear()
 				//创建画板
-				var canvas = document.createElement('canvas')
+				let canvas = document.createElement('canvas')
 				canvas.width = 150
 				canvas.height = 150
 				canvas.style.display = 'none'
 				//绘制文字
-				var text = canvas.getContext('2d')
+				let text = canvas.getContext('2d')
 				text.rotate(-45 * Math.PI / 180)
 				text.translate(-75, 25)
 				text.fillStyle = this.color
@@ -47,14 +47,14 @@
 				text.font = "14px Microsoft YaHei"
 				text.fillText(this.subtext, canvas.width / 2, canvas.height / 2 + 20)
 				//创建水印容器
-				var watermark = document.createElement('div')
+				let watermark = document.createElement('div')
 				watermark.setAttribute('class', 'watermark')
 				const styleStr = `position:absolute;top:0;left:0;right:0;bottom:0;z-index:99;pointer-events:none;background-repeat:repeat;background-image:url('${canvas.toDataURL("image/png")}');`
 				watermark.setAttribute('style', styleStr);
 				this.$refs.scWaterMark.appendChild(watermark)
 			},
 			clear(){
-				var wmDom = this.$refs.scWaterMark.querySelector('.watermark')
+				let wmDom = this.$refs.scWaterMark.querySelector('.watermark')
 				wmDom && wmDom.remove()
 			}
 		}

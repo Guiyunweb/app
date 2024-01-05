@@ -65,8 +65,8 @@
 				})
 			},
 			contextMenuVisible(value) {
-				var _this = this;
-				var cm = function(e){
+				let _this = this;
+				let cm = function(e){
 					let sp = document.getElementById("contextmenu");
 					if(sp&&!sp.contains(e.target)){
 						_this.closeMenu()
@@ -80,8 +80,8 @@
 			}
 		},
 		created() {
-			var menu = this.$router.sc_getMenu()
-			var dashboardRoute = this.treeFind(menu, node => node.path==this.$CONFIG.DASHBOARD_URL)
+			let menu = this.$router.sc_getMenu()
+			let dashboardRoute = this.treeFind(menu, node => node.path==this.$CONFIG.DASHBOARD_URL)
 			if(dashboardRoute){
 				dashboardRoute.fullPath = dashboardRoute.path
 				this.addViewTags(dashboardRoute)
@@ -161,7 +161,7 @@
 			},
 			//TAB 刷新
 			refreshTab(){
-				var nowTag = this.contextMenuItem;
+				let nowTag = this.contextMenuItem;
 				this.contextMenuVisible = false
 				//判断是否当前路由，否的话跳转
 				if(this.$route.fullPath != nowTag.fullPath){
@@ -171,7 +171,7 @@
 					})
 				}
 				this.$store.commit("refreshIframe", nowTag)
-				var _this = this;
+				let _this = this;
 				setTimeout(function() {
 					_this.$store.commit("removeKeepLive", nowTag.name)
 					_this.$store.commit("setRouteShow", false)
@@ -183,7 +183,7 @@
 			},
 			//TAB 关闭
 			closeTabs(){
-				var nowTag = this.contextMenuItem;
+				let nowTag = this.contextMenuItem;
 				if(!nowTag.meta.affix){
 					this.closeSelectedTag(nowTag)
 					this.contextMenuVisible = false
@@ -191,7 +191,7 @@
 			},
 			//TAB 关闭其他
 			closeOtherTabs(){
-				var nowTag = this.contextMenuItem;
+				let nowTag = this.contextMenuItem;
 				//判断是否当前路由，否的话跳转
 				if(this.$route.fullPath != nowTag.fullPath){
 					this.$router.push({
@@ -199,7 +199,7 @@
 						query: nowTag.query
 					})
 				}
-				var tags = [...this.tagList];
+				let tags = [...this.tagList];
 				tags.forEach(tag => {
 					if(tag.meta&&tag.meta.affix || nowTag.fullPath==tag.fullPath){
 						return true
@@ -211,7 +211,7 @@
 			},
 			//TAB 最大化
 			maximize(){
-				var nowTag = this.contextMenuItem;
+				let nowTag = this.contextMenuItem;
 				this.contextMenuVisible = false
 				//判断是否当前路由，否的话跳转
 				if(this.$route.fullPath != nowTag.fullPath){
@@ -224,8 +224,8 @@
 			},
 			//新窗口打开
 			openWindow(){
-				var nowTag = this.contextMenuItem;
-				var url = nowTag.href || '/';
+				let nowTag = this.contextMenuItem;
+				let url = nowTag.href || '/';
 				if(!nowTag.meta.affix){
 					this.closeSelectedTag(nowTag)
 				}

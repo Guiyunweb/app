@@ -119,7 +119,7 @@
 			}
 		},
 		created() {
-			var userInfo = this.$TOOL.data.get("USER_INFO");
+			let userInfo = this.$TOOL.data.get("USER_INFO");
 			this.userName = userInfo.userName;
 			this.userNameF = this.userName.substring(0,1);
 		},
@@ -161,7 +161,7 @@
 			},
 			//全屏
 			screen(){
-				var element = document.documentElement;
+				let element = document.documentElement;
 				this.$TOOL.screen(element)
 			},
 			//显示短消息

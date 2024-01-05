@@ -31,7 +31,7 @@ public class GlobalExceptionHandler {
     public AjaxResult handleAccessDeniedException(AccessDeniedException e, HttpServletRequest request) {
         String requestURI = request.getRequestURI();
         log.error("请求地址'{}',权限校验失败'{}'", requestURI, e.getMessage());
-        return AjaxResult.errorShow("没有权限，请联系管理员授权", HttpStatus.FORBIDDEN);
+        return AjaxResult.showError("没有权限，请联系管理员授权", HttpStatus.FORBIDDEN);
     }
 
     /**
@@ -41,7 +41,7 @@ public class GlobalExceptionHandler {
     public AjaxResult handleHttpRequestMethodNotSupported(HttpRequestMethodNotSupportedException e, HttpServletRequest request) {
         String requestURI = request.getRequestURI();
         log.error("请求地址'{}',不支持'{}'请求", requestURI, e.getMethod());
-        return AjaxResult.errorShow("没有权限，请联系管理员授权", HttpStatus.FORBIDDEN);
+        return AjaxResult.showError("没有权限，请联系管理员授权", HttpStatus.FORBIDDEN);
     }
 
     /**

@@ -54,11 +54,11 @@ tool.data = {
 /*sessionStorage*/
 tool.session = {
 	set(table, settings) {
-		var _set = JSON.stringify(settings)
+		let _set = JSON.stringify(settings)
 		return sessionStorage.setItem(table, _set);
 	},
 	get(table) {
-		var data = sessionStorage.getItem(table);
+		let data = sessionStorage.getItem(table);
 		try {
 			data = JSON.parse(data)
 		} catch (err) {
@@ -77,7 +77,7 @@ tool.session = {
 /*cookie*/
 tool.cookie = {
 	set(name, value, config={}) {
-		var cfg = {
+		let cfg = {
 			expires: null,
 			path: null,
 			domain: null,
@@ -85,9 +85,9 @@ tool.cookie = {
 			httpOnly: false,
 			...config
 		}
-		var cookieStr = `${name}=${escape(value)}`
+		let cookieStr = `${name}=${escape(value)}`
 		if(cfg.expires){
-			var exp = new Date()
+			let exp = new Date()
 			exp.setTime(exp.getTime() + parseInt(cfg.expires) * 1000)
 			cookieStr += `;expires=${exp.toGMTString()}`
 		}
@@ -100,7 +100,7 @@ tool.cookie = {
 		document.cookie = cookieStr
 	},
 	get(name){
-		var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"))
+		let arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"))
 		if(arr != null){
 			return unescape(arr[2])
 		}else{
@@ -108,7 +108,7 @@ tool.cookie = {
 		}
 	},
 	remove(name){
-		var exp = new Date()
+		let exp = new Date()
 		exp.setTime(exp.getTime() - 1)
 		document.cookie = `${name}=;expires=${exp.toGMTString()}`
 	}
@@ -116,7 +116,7 @@ tool.cookie = {
 
 /* Fullscreen */
 tool.screen = function (element) {
-	var isFull = !!(document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement || document.fullscreenElement);
+	let isFull = !!(document.webkitIsFullScreen || document.mozFullScreen || document.msFullscreenElement || document.fullscreenElement);
 	if(isFull){
 		if(document.exitFullscreen) {
 			document.exitFullscreen();
@@ -148,7 +148,7 @@ tool.objCopy = function (obj) {
 /* 日期格式化 */
 tool.dateFormat = function (date, fmt='yyyy-MM-dd hh:mm:ss') {
 	date = new Date(date)
-	var o = {
+	let o = {
 		"M+" : date.getMonth()+1,                 //月份
 		"d+" : date.getDate(),                    //日
 		"h+" : date.getHours(),                   //小时
@@ -160,7 +160,7 @@ tool.dateFormat = function (date, fmt='yyyy-MM-dd hh:mm:ss') {
 	if(/(y+)/.test(fmt)) {
 		fmt=fmt.replace(RegExp.$1, (date.getFullYear()+"").substr(4 - RegExp.$1.length));
 	}
-	for(var k in o) {
+	for(let k in o) {
 		if(new RegExp("("+ k +")").test(fmt)){
 			fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
 		}

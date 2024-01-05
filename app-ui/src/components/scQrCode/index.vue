@@ -42,7 +42,7 @@
 			//创建原始二维码DOM
 			async create(){
 				return new Promise((resolve) => {
-					var element = document.createElement("div");
+					let element = document.createElement("div");
 					new QRcode(element, {
 						text: this.text,
 						width: this.size,
@@ -60,12 +60,12 @@
 			//绘制LOGO
 			async drawLogo(){
 				return new Promise((resolve) => {
-					var logo = new Image()
+					let logo = new Image()
 					logo.src = this.logo
 					const logoPos = (this.size - this.logoSize) / 2
 					const rectSize = this.logoSize + this.logoPadding
 					const rectPos = (this.size - rectSize) / 2
-					var ctx = this.qrcode.getElementsByTagName("canvas")[0].getContext("2d")
+					let ctx = this.qrcode.getElementsByTagName("canvas")[0].getContext("2d")
 					logo.onload = ()=>{
 						ctx.fillRect(rectPos, rectPos, rectSize, rectSize)
 						ctx.drawImage(logo, logoPos, logoPos, this.logoSize, this.logoSize)

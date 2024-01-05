@@ -54,7 +54,7 @@
 		},
 		methods: {
 			draw(){
-				var myChart = echarts.init(this.$refs.scEcharts, 'T');
+				let myChart = echarts.init(this.$refs.scEcharts, 'T');
 				myChart.setOption(this.myOptions);
 				this.myChart = myChart;
 				window.addEventListener('resize', () => myChart.resize());

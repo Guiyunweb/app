@@ -29,9 +29,9 @@
 			}
 		},
 		mounted() {
-			var searchHistory = this.$TOOL.data.get("SEARCH_HISTORY") || []
+			let searchHistory = this.$TOOL.data.get("SEARCH_HISTORY") || []
 			this.history = searchHistory
-			var menuTree = this.$TOOL.data.get("MENU")
+			let menuTree = this.$TOOL.data.get("MENU")
 			this.filterMenu(menuTree)
 			this.$refs.input.focus()
 		},
@@ -59,9 +59,9 @@
 				})
 			},
 			menuFilter(queryString){
-				var res = []
+				let res = []
 				//过滤菜单树
-				var filterMenu = this.menu.filter((item) => {
+				let filterMenu = this.menu.filter((item) => {
 					if((item.meta.title).toLowerCase().indexOf(queryString.toLowerCase()) >= 0){
 						return true
 					}
@@ -70,8 +70,8 @@
 					}
 				})
 				//匹配系统路由
-				var router = this.$router.getRoutes()
-				var filterRouter= filterMenu.map((m) => {
+				let router = this.$router.getRoutes()
+				let filterRouter= filterMenu.map((m) => {
 					if(m.meta.type == "link"){
 						return router.find(r => r.path == '/'+m.path)
 					}else{

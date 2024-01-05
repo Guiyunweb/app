@@ -97,7 +97,7 @@ public class AjaxResult<T> {
         return new AjaxResult<T>(false, code, message, null, traceID(), false, false);
     }
 
-    public static <T> AjaxResult<T> errorShow(String message, Integer code) {
+    public static <T> AjaxResult<T> showError(String message, Integer code) {
         return new AjaxResult<T>(false, code, message, null, traceID(), true, false);
     }
 

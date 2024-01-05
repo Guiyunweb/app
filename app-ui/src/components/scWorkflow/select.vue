@@ -144,22 +144,22 @@
 			//获取组织
 			async getGroup(){
 				this.showGrouploading = true;
-				var res = await config.group.apiObj.get();
+				let res = await config.group.apiObj.get();
 				this.showGrouploading = false;
-				var allNode = {[config.group.props.key]: '', [config.group.props.label]: '所有'}
+				let allNode = {[config.group.props.key]: '', [config.group.props.label]: '所有'}
 				res.data.unshift(allNode);
 				this.group = config.group.parseData(res).rows
 			},
 			//获取用户
 			async getUser(){
 				this.showUserloading = true;
-				var params = {
+				let params = {
 					[config.user.request.keyword]: this.keyword || null,
 					[config.user.request.groupId]: this.groupId || null,
 					[config.user.request.page]: this.currentPage,
 					[config.user.request.pageSize]: this.pageSize
 				}
-				var res = await config.user.apiObj.get(params);
+				let res = await config.user.apiObj.get(params);
 				this.showUserloading = false;
 				this.user =  config.user.parseData(res).rows;
 				this.total = config.user.parseData(res).total || 0;
@@ -168,7 +168,7 @@
 			//获取角色
 			async getRole(){
 				this.showGrouploading = true;
-				var res = await config.role.apiObj.get();
+				let res = await config.role.apiObj.get();
 				this.showGrouploading = false;
 				this.role = config.role.parseData(res).rows
 			},

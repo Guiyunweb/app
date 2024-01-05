@@ -324,7 +324,7 @@ tinymce.addI18n('zh_CN',{
 "yen character": "\u65e5\u5143\u5b57\u6837",
 "yuan character": "\u4eba\u6c11\u5e01\u5143\u5b57\u6837",
 "yuan character, in hong kong and taiwan": "\u5143\u5b57\u6837\uff08\u6e2f\u53f0\u5730\u533a\uff09",
-"yen\/yuan character variant one": "\u5143\u5b57\u6837\uff08\u5927\u5199\uff09",
+"yen\/yuan character letiant one": "\u5143\u5b57\u6837\uff08\u5927\u5199\uff09",
 "Loading emoticons...": "\u52a0\u8f7d\u8868\u60c5\u7b26\u53f7...",
 "Could not load emoticons": "\u4e0d\u80fd\u52a0\u8f7d\u8868\u60c5\u7b26\u53f7",
 "People": "\u4eba\u7c7b",

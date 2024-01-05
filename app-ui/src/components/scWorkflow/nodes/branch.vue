@@ -199,7 +199,7 @@
 				this.form.conditionList.splice(index, 1)
 			},
 			toText(nodeConfig, index){
-				var { conditionList } = nodeConfig.conditionNodes[index]
+				let { conditionList } = nodeConfig.conditionNodes[index]
 				if (conditionList && conditionList.length == 1) {
 					const text = conditionList.map(item => `${item.label}${item.operator}${item.value}`).join(" 和 ")
 					return text

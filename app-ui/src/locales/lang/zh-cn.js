@@ -1,7 +1,7 @@
 export default {
 	login: {
-		slogan: '高性能 / 精致 / 优雅',
-		describe: '基于Vue3 + Element-Plus 的中后台前端解决方案。',
+		slogan: '副标题',
+		describe: '提示',
 		signInTitle: '用户登录',
 		accountLogin: '账号登录',
 		mobileLogin: '手机号登录',

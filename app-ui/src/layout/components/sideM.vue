@@ -35,7 +35,7 @@
 
 		},
 		created() {
-			var menu = this.$router.sc_getMenu()
+			let menu = this.$router.sc_getMenu()
 			this.menu = this.filterUrl(menu)
 		},
 
@@ -44,7 +44,7 @@
 		},
 		methods: {
 			showMobileNav(e){
-				var isdrag = e.currentTarget.getAttribute('drag-flag')
+				let isdrag = e.currentTarget.getAttribute('drag-flag')
 				if (isdrag == 'true') {
 					return false;
 				}else{
@@ -57,7 +57,7 @@
 			},
 			//转换外部链接的路由
 			filterUrl(map){
-				var newMap = []
+				let newMap = []
 				map && map.forEach(item => {
 					item.meta = item.meta?item.meta:{};
 					//处理隐藏
