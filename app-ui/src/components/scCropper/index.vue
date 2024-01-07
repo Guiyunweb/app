@@ -21,10 +21,10 @@
 </template>
 
 <script>
-	import Cropper from 'cropperjs'
-	import 'cropperjs/dist/cropper.css'
+import Cropper from 'cropperjs'
+import 'cropperjs/dist/cropper.css'
 
-	export default {
+export default {
 		props: {
 			src: { type: String, default: "" },
 			compress: {type: Number, default: 1},

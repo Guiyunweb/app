@@ -1,5 +1,5 @@
 import store from '@/store'
-import { nextTick } from 'vue'
+import {nextTick} from 'vue'
 
 export function beforeEach(to, from){
 	let adminMain = document.querySelector('#adminui-main')

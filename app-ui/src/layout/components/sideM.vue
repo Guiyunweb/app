@@ -19,9 +19,9 @@
 </template>
 
 <script>
-	import NavMenu from './NavMenu.vue';
+import NavMenu from './NavMenu.vue';
 
-	export default {
+export default {
 		components: {
 			NavMenu
 		},

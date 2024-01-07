@@ -12,9 +12,9 @@
 </template>
 
 <script>
-	import QRcode from "qrcodejs2"
+import QRcode from "qrcodejs2"
 
-	export default {
+export default {
 		props: {
 			text: { type: String, required: true, default: "" },
 			size: { type: Number, default: 100 },

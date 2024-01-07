@@ -72,10 +72,10 @@
 </template>
 
 <script>
-	import search from './search.vue'
-	import tasks from './tasks.vue'
+import search from './search.vue'
+import tasks from './tasks.vue'
 
-	export default {
+export default {
 		components: {
 			search,
 			tasks

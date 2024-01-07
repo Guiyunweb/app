@@ -39,9 +39,9 @@
 </template>
 
 <script>
-	import commonPage from './components/commonPage'
+import commonPage from './components/commonPage'
 
-	export default {
+export default {
 		components: {
 			commonPage
 		},

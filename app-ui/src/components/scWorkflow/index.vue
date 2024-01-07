@@ -21,10 +21,10 @@
 </template>
 
 <script>
-	import nodeWrap from './nodeWrap'
-	import useSelect from './select'
+import nodeWrap from './nodeWrap'
+import useSelect from './select'
 
-	export default {
+export default {
 		provide(){
 			return {
 				select: this.selectHandle

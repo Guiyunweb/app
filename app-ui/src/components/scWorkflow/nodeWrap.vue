@@ -16,12 +16,12 @@
 </template>
 
 <script>
-	import approver from './nodes/approver'
-	import promoter from './nodes/promoter'
-	import branch from './nodes/branch'
-	import send from './nodes/send'
+import approver from './nodes/approver'
+import promoter from './nodes/promoter'
+import branch from './nodes/branch'
+import send from './nodes/send'
 
-	export default {
+export default {
 		props: {
 			modelValue: { type: Object, default: () => {} }
 		},

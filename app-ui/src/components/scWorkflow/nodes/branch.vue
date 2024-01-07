@@ -103,9 +103,9 @@
 </template>
 
 <script>
-	import addNode from './addNode'
+import addNode from './addNode'
 
-	export default {
+export default {
 		props: {
 			modelValue: { type: Object, default: () => {} }
 		},

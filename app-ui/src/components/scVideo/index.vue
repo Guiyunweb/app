@@ -12,10 +12,10 @@
 </template>
 
 <script>
-	import Player from 'xgplayer'
-	import HlsPlayer from 'xgplayer-hls'
+import Player from 'xgplayer'
+import HlsPlayer from 'xgplayer-hls'
 
-	export default {
+export default {
 		props: {
 			src: { type: String, required: true, default: "" },
 			autoplay: { type: Boolean, default: false },

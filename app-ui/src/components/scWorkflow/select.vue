@@ -88,9 +88,9 @@
 </template>
 
 <script>
-	import config from "@/config/workflow";
+import config from "@/config/workflow";
 
-	export default {
+export default {
 		props: {
 			modelValue: { type: Boolean, default: false }
 		},

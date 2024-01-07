@@ -35,9 +35,9 @@
 </template>
 
 <script>
-	import colorTool from '@/utils/color'
+import colorTool from '@/utils/color'
 
-	export default {
+export default {
 		data(){
 			return {
 				layout: this.$store.state.global.layout,

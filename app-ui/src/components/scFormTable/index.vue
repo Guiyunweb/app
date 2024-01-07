@@ -26,9 +26,9 @@
 </template>
 
 <script>
-	import Sortable from 'sortablejs'
+import Sortable from 'sortablejs'
 
-	export default {
+export default {
 		props: {
 			modelValue: { type: Array, default: () => [] },
 			addTemplate: { type: Object, default: () => {} },

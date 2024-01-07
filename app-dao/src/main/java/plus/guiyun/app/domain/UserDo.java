@@ -4,7 +4,6 @@ package plus.guiyun.app.domain;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import plus.guiyun.app.common.code.domain.entity.BaseUser;
 import plus.guiyun.app.framework.web.domain.BaseEntity;
 
 @Getter

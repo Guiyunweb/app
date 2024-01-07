@@ -78,9 +78,9 @@
 </template>
 
 <script>
-	import config from "@/config/fileSelect"
+import config from "@/config/fileSelect"
 
-	export default {
+export default {
 		props: {
 			modelValue: null,
 			hideUpload: { type: Boolean, default: false },

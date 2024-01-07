@@ -5,9 +5,9 @@
 </template>
 
 <script>
-	import colorTool from '@/utils/color'
+import colorTool from '@/utils/color'
 
-	export default {
+export default {
 		name: 'App',
 		data() {
 			return {

@@ -1,7 +1,7 @@
 import config from "./config"
 import tool from './utils/tool'
 import http from "./utils/request"
-import { permission, rolePermission } from './utils/permission'
+import {permission, rolePermission} from './utils/permission'
 
 import scFormTable from './components/scFormTable'
 import scTableSelect from './components/scTableSelect'
@@ -19,7 +19,6 @@ import role from './directives/role'
 import time from './directives/time'
 import copy from './directives/copy'
 // import errorHandler from './utils/errorHandler'
-
 import * as elIcons from '@element-plus/icons-vue'
 import * as scIcons from './assets/icons'
 

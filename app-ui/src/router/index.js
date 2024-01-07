@@ -1,12 +1,12 @@
 import {createRouter, createWebHashHistory} from 'vue-router';
-import { ElNotification } from 'element-plus';
+import {ElNotification} from 'element-plus';
 import config from "@/config"
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import tool from '@/utils/tool';
 import systemRouter from './systemRouter';
 import userRoutes from '@/config/route';
-import {beforeEach, afterEach} from './scrollBehavior';
+import {afterEach, beforeEach} from './scrollBehavior';
 
 //系统路由
 const routes = systemRouter

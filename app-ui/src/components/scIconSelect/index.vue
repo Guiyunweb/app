@@ -47,9 +47,9 @@
 </template>
 
 <script>
-	import config from "@/config/iconSelect"
+import config from "@/config/iconSelect"
 
-	export default {
+export default {
 		props: {
 			modelValue: { type: String, default: "" },
 			disabled: { type: Boolean, default: false },

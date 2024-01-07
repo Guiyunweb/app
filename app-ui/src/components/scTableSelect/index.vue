@@ -30,9 +30,9 @@
 </template>
 
 <script>
-	import config from "@/config/tableSelect";
+import config from "@/config/tableSelect";
 
-	export default {
+export default {
 		props: {
 			modelValue: null,
 			apiObj: { type: Object, default: () => {} },

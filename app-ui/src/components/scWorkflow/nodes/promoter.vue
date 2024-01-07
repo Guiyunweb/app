@@ -39,9 +39,9 @@
 </template>
 
 <script>
-	import addNode from './addNode'
+import addNode from './addNode'
 
-	export default {
+export default {
 		inject: ['select'],
 		props: {
 			modelValue: { type: Object, default: () => {} }

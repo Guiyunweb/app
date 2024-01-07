@@ -91,18 +91,16 @@ export default {
 			// let user = await this.$API.auth.token.post(data)
 			// let user = await SYS_USER_LOGIN
 			let res = await SYS_USER_LOGIN(data)
+			this.islogin = false
 			if (!res.success){
 				this.$message.error(res.message)
 				return
 			}
-			// if (res.success){
-			// 	this.$message.error(res.message)
-			// }
+			this.$TOOL.cookie.set("TOKEN", res.data.token, {
+				expires: this.form.autologin? 24*60*60 : 0
+			})
 
-
-			// this.$TOOL.cookie.set("TOKEN", res.token, {
-			// 	expires: this.form.autologin? 24*60*60 : 0
-			// })
+			this.$TOOL.data.set("USER_INFO", res.data.user)
 
 			// if(user.code == 200){
 			// 	this.$TOOL.cookie.set("TOKEN", user.data.token, {
@@ -138,10 +136,10 @@ export default {
 			// 	return false
 			// }
 			//
-			// this.$router.replace({
-			// 	path: '/'
-			// })
-			// this.$message.success("Login Success 登录成功")
+			this.$router.replace({
+				path: '/'
+			})
+			this.$message.success("Login Success 登录成功")
 			// this.islogin = false
 		},
 	}

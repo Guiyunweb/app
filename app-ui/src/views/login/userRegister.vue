@@ -66,10 +66,10 @@
 </template>
 
 <script>
-	import scPasswordStrength from '@/components/scPasswordStrength';
-	import commonPage from './components/commonPage'
+import scPasswordStrength from '@/components/scPasswordStrength';
+import commonPage from './components/commonPage'
 
-	export default {
+export default {
 		components: {
 			commonPage,
 			scPasswordStrength

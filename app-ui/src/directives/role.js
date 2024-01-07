@@ -1,4 +1,4 @@
-import { rolePermission } from '@/utils/permission'
+import {rolePermission} from '@/utils/permission'
 
 export default {
 	mounted(el, binding) {

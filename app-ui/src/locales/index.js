@@ -1,6 +1,6 @@
 import sysConfig from "@/config"
 import tool from '@/utils/tool'
-import { createI18n } from 'vue-i18n'
+import {createI18n} from 'vue-i18n'
 import el_zh_cn from 'element-plus/lib/locale/lang/zh-cn'
 
 import zh_cn from './lang/zh-cn.js'

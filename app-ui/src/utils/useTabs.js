@@ -1,4 +1,4 @@
-import { nextTick  } from 'vue'
+import {nextTick} from 'vue'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 import router from '@/router'

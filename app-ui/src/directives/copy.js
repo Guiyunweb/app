@@ -1,4 +1,4 @@
-import { ElMessage } from 'element-plus'
+import {ElMessage} from 'element-plus'
 
 export default {
 	mounted(el, binding) {

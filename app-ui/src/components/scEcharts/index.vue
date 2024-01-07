@@ -3,9 +3,10 @@
 </template>
 
 <script>
-	import * as echarts from 'echarts';
-	import T from './echarts-theme-T.js';
-	echarts.registerTheme('T', T);
+import * as echarts from 'echarts';
+import T from './echarts-theme-T.js';
+
+echarts.registerTheme('T', T);
 	const unwarp = (obj) => obj && (obj.__v_raw || obj.valueOf() || obj);
 
 	export default {

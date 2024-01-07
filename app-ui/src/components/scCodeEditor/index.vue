@@ -3,8 +3,8 @@
  * @version: 1.0
  * @Author: sakuya
  * @Date: 2022年5月20日21:46:29
- * @LastEditors: 
- * @LastEditTime: 
+ * @LastEditors:
+ * @LastEditTime:
 -->
 
 <template>
@@ -14,24 +14,24 @@
 </template>
 
 <script>
-	import { markRaw } from "vue"
+import {markRaw} from "vue"
 
-	//框架
-	import CodeMirror from 'codemirror'
-	import 'codemirror/lib/codemirror.css'
+//框架
+import CodeMirror from 'codemirror'
+import 'codemirror/lib/codemirror.css'
 
-	//主题
-	import 'codemirror/theme/idea.css'
-	import 'codemirror/theme/darcula.css'
+//主题
+import 'codemirror/theme/idea.css'
+import 'codemirror/theme/darcula.css'
 
-	//功能
-	import 'codemirror/addon/selection/active-line'
+//功能
+import 'codemirror/addon/selection/active-line'
 
-	//语言
-	import 'codemirror/mode/javascript/javascript'
-	import 'codemirror/mode/sql/sql'
+//语言
+import 'codemirror/mode/javascript/javascript'
+import 'codemirror/mode/sql/sql'
 
-	export default {
+export default {
 		props: {
 			modelValue: {
 				type: String,

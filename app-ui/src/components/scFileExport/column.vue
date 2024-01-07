@@ -18,9 +18,9 @@
 </template>
 
 <script>
-	import Sortable from 'sortablejs'
+import Sortable from 'sortablejs'
 
-	export default {
+export default {
 		emits: ['success'],
 		props: {
 			column: { type: Array, default: () => [] }
