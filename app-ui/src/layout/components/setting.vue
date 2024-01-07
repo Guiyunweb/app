@@ -5,12 +5,12 @@
 		<el-form-item :label="$t('user.nightmode')">
 			<el-switch v-model="dark"></el-switch>
 		</el-form-item>
-		<el-form-item :label="$t('user.language')">
-			<el-select v-model="lang">
-				<el-option label="简体中文" value="zh-cn"></el-option>
-				<el-option label="English" value="en"></el-option>
-			</el-select>
-		</el-form-item>
+<!--		<el-form-item :label="$t('user.language')">-->
+<!--			<el-select v-model="lang">-->
+<!--				<el-option label="简体中文" value="zh-cn"></el-option>-->
+<!--				<el-option label="English" value="en"></el-option>-->
+<!--			</el-select>-->
+<!--		</el-form-item>-->
 		<el-divider></el-divider>
 		<el-form-item label="主题颜色">
 			<el-color-picker v-model="colorPrimary" :predefine="colorList">></el-color-picker>

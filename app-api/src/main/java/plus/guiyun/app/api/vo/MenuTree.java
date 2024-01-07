@@ -1,9 +1,12 @@
 package plus.guiyun.app.api.vo;
 
+import com.alibaba.fastjson2.JSONObject;
+import jakarta.persistence.Convert;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Map;
 
 @Setter
 @Getter
@@ -26,7 +29,7 @@ public class MenuTree {
      */
     private String component;
 
-    private String meta;
+    private JSONObject meta;
 
     private Long parentId;
 

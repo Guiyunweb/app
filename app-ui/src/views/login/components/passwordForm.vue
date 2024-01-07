@@ -38,6 +38,7 @@
 
 <script>
 import {SYS_USER_LOGIN} from "@/api/system";
+import {GET_MENU_TREE} from "@/api/menu";
 
 export default {
 	data() {
@@ -92,50 +93,27 @@ export default {
 			// let user = await SYS_USER_LOGIN
 			let res = await SYS_USER_LOGIN(data)
 			this.islogin = false
-			if (!res.success){
+			if (!res.success) {
 				this.$message.error(res.message)
 				return
 			}
 			this.$TOOL.cookie.set("TOKEN", res.data.token, {
-				expires: this.form.autologin? 24*60*60 : 0
+				expires: this.form.autologin ? 24 * 60 * 60 : 0
 			})
 
 			this.$TOOL.data.set("USER_INFO", res.data.user)
 
-			// if(user.code == 200){
-			// 	this.$TOOL.cookie.set("TOKEN", user.data.token, {
-			// 		expires: this.form.autologin? 24*60*60 : 0
-			// 	})
-			// 	this.$TOOL.data.set("USER_INFO", user.data.userInfo)
-			// }else{
-			// 	this.islogin = false
-			// 	this.$message.warning(user.message)
-			// 	return false
-			// }
-			// //获取菜单
-			// let menu = null
-			// if(this.form.user == 'admin'){
-			// 	menu = await this.$API.system.menu.myMenus.get()
-			// }else{
-			// 	menu = await this.$API.demo.menu.get()
-			// }
-			// if(menu.code == 200){
-			// 	if(menu.data.menu.length==0){
-			// 		this.islogin = false
-			// 		this.$alert("当前用户无任何菜单权限，请联系系统管理员", "无权限访问", {
-			// 			type: 'error',
-			// 			center: true
-			// 		})
-			// 		return false
-			// 	}
-			// 	this.$TOOL.data.set("MENU", menu.data.menu)
-			// 	this.$TOOL.data.set("PERMISSIONS", menu.data.permissions)
-			// }else{
-			// 	this.islogin = false
-			// 	this.$message.warning(menu.message)
-			// 	return false
-			// }
-			//
+			let menu = await GET_MENU_TREE()
+			if (!menu.success) {
+				this.$alert("当前用户无任何菜单权限，请联系系统管理员", "无权限访问", {
+					type: 'error',
+					center: true
+				})
+				return
+			}
+			this.$TOOL.data.set("MENU", menu.data)
+			this.$TOOL.data.set("PERMISSIONS", null)
+
 			this.$router.replace({
 				path: '/'
 			})

@@ -110,7 +110,7 @@ function stringify(data) {
  */
 function createRequest(service) {
 	return function (config) {
-		const token = tool.cookie.get('token')
+		const token = tool.cookie.get('TOKEN')
 		const configDefault = {
 			headers: {
 				'Content-Type': get(config, 'headers.Content-Type', 'application/json')
