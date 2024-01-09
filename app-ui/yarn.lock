@@ -1199,6 +1199,15 @@
   resolved "https://registry.npmmirror.com/@sideway/pinpoint/-/pinpoint-2.0.0.tgz#cff8ffadc372ad29fd3f78277aeb29e632cc70df"
   integrity sha512-RNiOoTPkptFtSVzQevY/yWtZwf/RxyVnPy/OcA9HBM3MlGDnBEYL5B41H0MTn0Uec8Hi+2qUtTfG2WWZBmMejQ==
 
+"@smallwei/avue@^3.2.7":
+  version "3.2.7"
+  resolved "https://registry.npmmirror.com/@smallwei/avue/-/avue-3.2.7.tgz#e51a2a6564849486fe776da1996c6af74650145c"
+  integrity sha512-zlgR1anOy/V9fOMOzznYWg9s142FVVQnsBu9eeWd5CGIkm0IFsfun1KIulksNMeXEUBJiIh8X2nGcPH1U0fQCw==
+  dependencies:
+    "@element-plus/icons-vue" "^2.0.6"
+    countup.js "^1.9.3"
+    dayjs "^1.10.4"
+
 "@soda/friendly-errors-webpack-plugin@^1.8.0":
   version "1.8.1"
   resolved "https://registry.npmmirror.com/@soda/friendly-errors-webpack-plugin/-/friendly-errors-webpack-plugin-1.8.1.tgz#4d4fbb1108993aaa362116247c3d18188a2c6c85"
@@ -2636,6 +2645,11 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
+countup.js@^1.9.3:
+  version "1.9.3"
+  resolved "https://registry.npmmirror.com/countup.js/-/countup.js-1.9.3.tgz#ce3e50cd7160441e478f07da31895edcc0f1c9dd"
+  integrity sha512-UHf2P/mFKaESqdPq+UdBJm/1y8lYdlcDd0nTZHNC8cxWoJwZr1Eldm1PpWui446vDl5Pd8PtRYkr3q6K4+Qa5A==
+
 cropperjs@1.5.12:
   version "1.5.12"
   resolved "https://registry.npmmirror.com/cropperjs/-/cropperjs-1.5.12.tgz#d9c0db2bfb8c0d769d51739e8f916bbc44e10f50"
@@ -2811,7 +2825,7 @@ danmu.js@^0.5.9:
   dependencies:
     event-emitter "^0.3.5"
 
-dayjs@^1.11.3:
+dayjs@^1.10.4, dayjs@^1.11.3:
   version "1.11.7"
   resolved "https://registry.npmmirror.com/dayjs/-/dayjs-1.11.7.tgz#4b296922642f70999544d1144a2c25730fce63e2"
   integrity sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==

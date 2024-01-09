@@ -118,7 +118,6 @@ export default {
 				path: '/'
 			})
 			this.$message.success("Login Success 登录成功")
-			// this.islogin = false
 		},
 	}
 }
