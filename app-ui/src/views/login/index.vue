@@ -1,341 +1,83 @@
 <template>
-	<div class="login_bg">
-		<div class="login_adv" style="background-image: url('img/auth_banner.jpg');">
-			<div class="login_adv__title">
-				<h2>APP</h2>
-				<h4>{{ $t('login.slogan') }}</h4>
-				<p>{{ $t('login.describe') }}</p>
-			</div>
-			<div class="login_adv__mask"></div>
-			<div class="login_adv__bottom">
-				© {{ $CONFIG.APP_NAME }} {{ $CONFIG.APP_VER }}
-			</div>
-		</div>
-		<div class="login_main">
-			<div class="login_config">
-				<el-button :icon="config.dark?'el-icon-sunny':'el-icon-moon'" circle type="info"
-						   @click="configDark"></el-button>
-			</div>
-			<div class="login-form">
-				<div class="login-header">
-					<div class="logo">
-						<img :alt="$CONFIG.APP_NAME" src="img/logo.png">
-						<label>{{ $CONFIG.APP_NAME }}</label>
-					</div>
-				</div>
-				<el-tabs>
-					<el-tab-pane :label="$t('login.accountLogin')" lazy>
-						<password-form></password-form>
-					</el-tab-pane>
-				</el-tabs>
-			</div>
-		</div>
-	</div>
+  <div class="main">
+    <el-card class="box-card">
+      <h1 style="text-align: center">登录</h1>
+
+      <el-form ref="loginForm" :model="form" label-width="0" size="large">
+        <el-form-item prop="user">
+          <el-input v-model="form.account" clearable placeholder="用户名"/>
+        </el-form-item>
+        <el-form-item prop="password">
+          <el-input v-model="form.password" clearable show-password placeholder="请输入密码"/>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary" style="width: 100%;" round @click="login">
+            登录
+          </el-button>
+        </el-form-item>
+      </el-form>
+
+    </el-card>
+  </div>
 </template>
 
-<script>
-import passwordForm from './components/passwordForm'
-import phoneForm from './components/phoneForm'
+<script setup>
 
-export default {
-	components: {
-		passwordForm,
-		phoneForm
-	},
-	data() {
-		return {
-			config: {
-				lang: this.$TOOL.data.get('APP_LANG') || this.$CONFIG.LANG,
-				dark: this.$TOOL.data.get('APP_DARK') || false
-			},
-			lang: [
-				{
-					name: '简体中文',
-					value: 'zh-cn',
-				},
-				{
-					name: 'English',
-					value: 'en',
-				}
-			],
-			WechatLoginCode: "",
-			showWechatLogin: false,
-			isWechatLoginResult: false
-		}
-	},
-	watch: {
-		'config.dark'(val) {
-			if (val) {
-				document.documentElement.classList.add("dark")
-				this.$TOOL.data.set("APP_DARK", val)
-			} else {
-				document.documentElement.classList.remove("dark")
-				this.$TOOL.data.remove("APP_DARK")
-			}
-		},
-		'config.lang'(val) {
-			this.$i18n.locale = val
-			this.$TOOL.data.set("APP_LANG", val)
-		}
-	},
-	created: function () {
-		this.$TOOL.cookie.remove("TOKEN")
-		this.$TOOL.data.remove("USER_INFO")
-		this.$TOOL.data.remove("MENU")
-		this.$TOOL.data.remove("PERMISSIONS")
-		this.$TOOL.data.remove("grid")
-		this.$store.commit("clearViewTags")
-		this.$store.commit("clearKeepLive")
-		this.$store.commit("clearIframeList")
-		console.log('%c SCUI %c Gitee: https://gitee.com/lolicode/scui', 'background:#666;color:#fff;border-radius:3px;', '')
-	},
-	methods: {
-		configDark() {
-			this.config.dark = this.config.dark ? false : true
-		},
-		configLang(command) {
-			this.config.lang = command.value
-		},
-		wechatLogin() {
-			this.showWechatLogin = true
-			this.WechatLoginCode = "SCUI-823677237287236-" + new Date().getTime()
-			this.isWechatLoginResult = false
-			setTimeout(() => {
-				this.isWechatLoginResult = true
-			}, 3000)
-		}
-	}
+import {ref} from "vue";
+import {SYS_USER_LOGIN} from "@/api/system";
+import {ElMessage} from "element-plus";
+import util from "@/libs/util";
+import {useRouter} from "vue-router";
+import {GET_MENU_TREE} from "@/api/menu";
+
+const form = ref({
+  account: null,
+  password: null
+})
+
+const router = useRouter()
+
+
+async function login() {
+  util.data.clear()
+  util.cookies.remove('token')
+  // 登录
+  let user = form.value
+  let res = await SYS_USER_LOGIN(user)
+  if (!res.success) {
+    ElMessage.error(res.message)
+    return
+  }
+
+  // 保存Token
+  util.cookies.set('token', res.data.token)
+  util.data.set('user', res.data.user)
+
+  // 菜单查询
+  let menu = await GET_MENU_TREE()
+  if (!menu.success) {
+    ElMessage.error("当前用户无任何菜单权限，请联系系统管理员\", \"无权限访问")
+    return
+  }
+
+  // 保存Menu
+  util.data.set('menu', menu.data)
+  await router.push("/")
 }
+
 </script>
 
 <style scoped>
-.login_bg {
-	width: 100%;
-	height: 100%;
-	background: #fff;
-	display: flex;
+.main {
+  background-image: url("../../assets/images/background.webp");
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
 }
 
-.login_adv {
-	width: 33.33333%;
-	background-color: #555;
-	background-size: cover;
-	background-position: center center;
-	background-repeat: no-repeat;
-	position: relative;
-}
-
-.login_adv__title {
-	color: #fff;
-	padding: 40px;
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	z-index: 2;
-}
-
-.login_adv__title h2 {
-	font-size: 40px;
-}
-
-.login_adv__title h4 {
-	font-size: 18px;
-	margin-top: 10px;
-	font-weight: normal;
-}
-
-.login_adv__title p {
-	font-size: 14px;
-	margin-top: 10px;
-	line-height: 1.8;
-	color: rgba(255, 255, 255, 0.6);
-}
-
-.login_adv__title div {
-	margin-top: 10px;
-	display: flex;
-	align-items: center;
-}
-
-.login_adv__title div span {
-	margin-right: 15px;
-}
-
-.login_adv__title div i {
-	font-size: 40px;
-}
-
-.login_adv__title div i.add {
-	font-size: 20px;
-	color: rgba(255, 255, 255, 0.6);
-}
-
-.login_adv__bottom {
-	position: absolute;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-	color: #fff;
-	padding: 40px;
-	background-image: linear-gradient(transparent, #000);
-	z-index: 3;
-}
-
-.login_adv__mask {
-	position: absolute;
-	top: 0px;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-	background: rgba(0, 0, 0, 0.5);
-	z-index: 1;
-}
-
-.login_main {
-	flex: 1;
-	overflow: auto;
-	display: flex;
-}
-
-.login-form {
-	width: 400px;
-	margin: auto;
-	padding: 20px 0;
-}
-
-.login-header {
-	margin-bottom: 40px;
-}
-
-.login-header .logo {
-	display: flex;
-	align-items: center;
-}
-
-.login-header .logo img {
-	width: 40px;
-	height: 40px;
-	vertical-align: bottom;
-	margin-right: 10px;
-}
-
-.login-header .logo label {
-	font-size: 26px;
-	font-weight: bold;
-}
-
-.login-oauth {
-	display: flex;
-	justify-content: space-around;
-}
-
-.login-form .el-divider {
-	margin-top: 40px;
-}
-
-.login-form {
-}
-
-.login-form:deep(.el-tabs) .el-tabs__header {
-	margin-bottom: 25px;
-}
-
-.login-form:deep(.el-tabs) .el-tabs__header .el-tabs__item {
-	font-size: 14px;
-}
-
-.login-form:deep(.login-forgot) {
-	text-align: right;
-}
-
-.login-form:deep(.login-forgot) a {
-	color: var(--el-color-primary);
-}
-
-.login-form:deep(.login-forgot) a:hover {
-	color: var(--el-color-primary-light-3);
-}
-
-.login-form:deep(.login-reg) {
-	font-size: 14px;
-	color: var(--el-text-color-primary);
-}
-
-.login-form:deep(.login-reg) a {
-	color: var(--el-color-primary);
-}
-
-.login-form:deep(.login-reg) a:hover {
-	color: var(--el-color-primary-light-3);
-}
-
-.login_config {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-}
-
-.login-form:deep(.login-msg-yzm) {
-	display: flex;
-	width: 100%;
-}
-
-.login-form:deep(.login-msg-yzm) .el-button {
-	margin-left: 10px;
-	--el-button-size: 42px;
-}
-
-.qrCodeLogin {
-	text-align: center;
-	position: relative;
-	padding: 20px 0;
-}
-
-.qrCodeLogin img.qrCode {
-	background: #fff;
-	padding: 20px;
-	border-radius: 10px;
-}
-
-.qrCodeLogin p.msg {
-	margin-top: 15px;
-}
-
-.qrCodeLogin .qrCodeLogin-result {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	text-align: center;
-	background: var(--el-mask-color);
-}
-
-@media (max-width: 1200px) {
-	.login-form {
-		width: 340px;
-	}
-}
-
-@media (max-width: 1000px) {
-	.login_main {
-		display: block;
-	}
-
-	.login_main .login_config {
-		position: static;
-		padding: 20px 20px 0 20px;
-		text-align: right;
-	}
-
-	.login-form {
-		width: 100%;
-		padding: 20px 40px;
-	}
-
-	.login_adv {
-		display: none;
-	}
+.box-card {
+  width: 20vw;
+  margin: 15vh auto;
+  padding: 10px;
 }
 </style>

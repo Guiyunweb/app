@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-import plus.guiyun.app.framework.jpa.MapAndJson;
 
 @Getter
 @Setter
@@ -35,5 +34,7 @@ public class MenuDO {
     private String meta;
 
     private Long parentId;
+
+    private Long sort;
 
 }
