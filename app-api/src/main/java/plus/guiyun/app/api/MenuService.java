@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface MenuService extends CurdService<MenuDO, Long> {
     List getMenuTree();
+
+    List<MenuDO> getParentMenu();
 }

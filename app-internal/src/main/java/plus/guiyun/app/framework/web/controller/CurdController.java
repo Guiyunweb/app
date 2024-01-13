@@ -31,6 +31,11 @@ public class CurdController<S extends CurdService<T, ID>, T, ID> {
         return AjaxResult.success(pagination);
     }
 
+    @GetMapping("/all")
+    public AjaxResult<Iterable<T>> all() {
+        return AjaxResult.success(service.findAll());
+    }
+
     @GetMapping(value = "/{id}")
     public AjaxResult<T> getInfo(@PathVariable("id") ID id) {
         T t = service.findById(id);

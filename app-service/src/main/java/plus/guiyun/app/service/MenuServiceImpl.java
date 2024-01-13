@@ -32,6 +32,11 @@ public class MenuServiceImpl extends CurdServiceImpl<MenuRepository, MenuDO, Lon
         return rootList;
     }
 
+    @Override
+    public List<MenuDO> getParentMenu() {
+        return repository.findByParentIdIsNotNull();
+    }
+
     /**
      * 构建菜单树
      *

@@ -23,5 +23,10 @@ public class MenuController extends CurdController<MenuService, MenuDO, Long> {
         return AjaxResult.success(service.getMenuTree());
     }
 
+    @GetMapping("/getParentMenu")
+    public AjaxResult<List> getParentMenu() {
+        return AjaxResult.success(service.getParentMenu());
+    }
+
 
 }

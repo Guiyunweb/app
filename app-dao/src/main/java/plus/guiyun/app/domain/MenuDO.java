@@ -18,7 +18,7 @@ public class MenuDO {
     /**
      * 路由的标识，必填且与页面组件的name一致
      */
-    @NotNull(message = "用户名不能为空")
+    @NotNull(message = "菜单名不能为空")
     private String name;
 
     /**
@@ -35,6 +35,6 @@ public class MenuDO {
 
     private Long parentId;
 
-    private Long sort;
+    private Long sortBy;
 
 }
