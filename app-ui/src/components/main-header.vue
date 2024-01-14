@@ -9,9 +9,7 @@
 </template>
 
 <script setup>
-import {ArrowRight} from '@element-plus/icons-vue'
-
-</script>
+import {ArrowRight} from '@element-plus/icons-vue'</script>
 
 <style scoped>
 .main-breadcrumb{
