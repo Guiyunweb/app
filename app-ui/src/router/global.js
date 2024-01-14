@@ -14,21 +14,23 @@ export const vueRouters = function () {
  */
 function flatAsyncRoutes(menus) {
     let route = []
-    for (const menu of menus) {
-        if (menu.component) {
-            route.push({
-                path: menu.path,
-                name: menu.name,
-                meta: menu.meta,
-                component: loadComponent(menu.component),
-            })
-        } else {
-            route.push({
-                path: menu.path,
-                name: menu.name,
-                meta: menu.meta,
-                children: flatAsyncRoutes(menu.children)
-            })
+    if (menus) {
+        for (const menu of menus) {
+            if (menu.component) {
+                route.push({
+                    path: menu.path,
+                    name: menu.name,
+                    meta: menu.meta,
+                    component: loadComponent(menu.component),
+                })
+            } else {
+                route.push({
+                    path: menu.path,
+                    name: menu.name,
+                    meta: menu.meta,
+                    children: flatAsyncRoutes(menu.children)
+                })
+            }
         }
     }
     return route

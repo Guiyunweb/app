@@ -29,6 +29,7 @@ import {ElMessage} from "element-plus";
 import util from "@/libs/util";
 import {useRouter} from "vue-router";
 import {GET_MENU_TREE} from "@/api/menu";
+import config from "@/config";
 
 const form = ref({
   account: null,
@@ -62,7 +63,7 @@ async function login() {
 
   // 保存Menu
   util.data.set('menu', menu.data)
-  await router.push("/")
+  await router.push(config.DASHBOARD_URL)
 }
 
 </script>

@@ -22,7 +22,7 @@ public class CurdServiceImpl<R extends JpaRepository<T, ID>, T, ID> implements C
     @Override
     public T updateById(T exists, ID id) {
         T role = findById(id);
-        JpaUtil.copyNotNullProperties(role, exists);
+        JpaUtil.copyNotNullProperties(exists, role);
         return save(exists);
     }
 
