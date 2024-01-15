@@ -1,0 +1,15 @@
+stages:
+  - build
+
+
+build:
+  stage: build
+  retry: 2
+  script:
+    - export JAVA_HOME=/usr/local/jdk17/
+    - export PATH=$JAVA_HOME/bin:$PATH
+    - export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+    - java --version
+    - gradle clean build
+    - docker build -t swr.cn-east-2.myhuaweicloud.com/guiyun/app .
+    - docker push swr.cn-east-2.myhuaweicloud.com/guiyun/app
