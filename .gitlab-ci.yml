@@ -2,7 +2,7 @@ stages:
   - build
 
 
-build:
+build_service:
   stage: build
   retry: 2
   script:
@@ -13,3 +13,11 @@ build:
     - gradle clean build
     - docker build -t swr.cn-east-2.myhuaweicloud.com/guiyun/app .
     - docker push swr.cn-east-2.myhuaweicloud.com/guiyun/app
+
+build_web:
+  stage: build
+  retry: 2
+  script:
+    - yarn install
+    - yarn run build
+    - echo "eslint pass！"
