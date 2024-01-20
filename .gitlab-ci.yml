@@ -11,8 +11,9 @@ build_service:
     - export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
     - java --version
     - gradle clean build
-    - docker build -t swr.cn-east-2.myhuaweicloud.com/guiyun/app .
-    - docker push swr.cn-east-2.myhuaweicloud.com/guiyun/app
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t registry.docker.guiyunweb.com/guiyun/app .
+    - docker push registry.docker.guiyunweb.com/guiyun/app
 
 build_web:
   stage: build
