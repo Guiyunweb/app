@@ -19,6 +19,7 @@ build_web:
   stage: build
   retry: 2
   script:
+    - cd app-ui/
     - yarn install
     - yarn run build
     - echo "eslint pass！"
