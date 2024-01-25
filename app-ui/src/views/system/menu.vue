@@ -65,8 +65,6 @@ export default {
         }
         this.data = data
         this.option.column[3].dicData = dicData
-        console.log(this.dicData)
-        console.log(JSON.stringify(this.option.column))
       })
     },
     rowSave(row, done, loading) {

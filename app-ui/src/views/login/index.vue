@@ -63,7 +63,8 @@ async function login() {
 
   // 保存Menu
   util.data.set('menu', menu.data)
-  await router.push(config.DASHBOARD_URL)
+  // await router.push(config.DASHBOARD_URL)
+  window.location = config.DASHBOARD_URL
 }
 
 </script>
