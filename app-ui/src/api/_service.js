@@ -22,6 +22,16 @@ function handleError(error) {
     })
 }
 
+function handleErrorMessage(message) {
+    // 打印到控制台
+    console.log('>>>>>> Error >>>>>>')
+    ElMessage({
+        message: message,
+        type: 'error',
+        duration: 5 * 1000
+    })
+}
+
 /**
  * @description 创建请求实例
  */
@@ -50,9 +60,8 @@ function createService() {
             // 判断提示
             if (response.data.success) {
                 return response.data
-            } else {
-                return response.data
             }
+            throw handleErrorMessage("请求失败")
         },
         error => {
             const status = get(error, 'response.status')

@@ -5,8 +5,8 @@ spring:
     name: app
   datasource:
     url: jdbc:mysql://some-mysql:6033/db_test
-    username: app
-    password: 123456
+    username: root
+    password: mysql.mengyuanyun
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     show-sql: true

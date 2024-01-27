@@ -20,29 +20,35 @@ export default {
         rowParentKey: 'parentId',
         dialogDirection: 'rtl',
         dialogType: 'drawer',
+        border: true,
         column: [
           {
-            label: '菜单名',
-            prop: 'name'
+            label: '菜单名称',
+            prop: 'title',
+            width: 200
           },
           {
-            label: '路径',
-            prop: 'path'
+            label: '排序',
+            prop: 'sortBy',
+            type: 'number',
+            width: 60
           },
           {
-            label: '页面路径',
+            label: '组件路径',
             prop: 'component'
           },
           {
             label: '父类',
             prop: 'parentId',
             type: 'select',
-            header: true,
+            hide: true,
             dicData: []
           },
           {
-            label: '排序',
-            prop: 'sortBy'
+            label: '创建时间',
+            prop: 'createTime',
+            editDisplay: false,
+            addDisplay: false
           },
         ],
         dicData: []
@@ -59,7 +65,7 @@ export default {
         let dicData = []
         for (const datum of data) {
           dicData.push({
-            label: datum.meta.title,
+            label: datum.title,
             value: datum.id
           })
         }

@@ -19,15 +19,11 @@ function flatAsyncRoutes(menus) {
             if (menu.component) {
                 route.push({
                     path: menu.path,
-                    name: menu.name,
-                    meta: menu.meta,
                     component: loadComponent(menu.component),
                 })
             } else {
                 route.push({
                     path: menu.path,
-                    name: menu.name,
-                    meta: menu.meta,
                     children: flatAsyncRoutes(menu.children)
                 })
             }

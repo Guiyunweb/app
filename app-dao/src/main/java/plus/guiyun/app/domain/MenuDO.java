@@ -4,12 +4,13 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import plus.guiyun.app.framework.web.domain.BaseEntity;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "tb_menu")
-public class MenuDO {
+public class MenuDO extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,10 +32,16 @@ public class MenuDO {
      */
     private String component;
 
-    private String meta;
+//    private String meta;
 
     private Long parentId;
 
     private Long sortBy;
+
+
+    /**
+     * 菜单
+     */
+    private String title;
 
 }

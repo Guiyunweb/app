@@ -24,13 +24,13 @@
           <el-menu default-active="2" class="admin-side-scrollbar">
             <div v-for="item in menu" :key="`item_`+item.id">
               <el-menu-item v-if="!item.children.length>0" :index="item.id" @click="getPath(item.path)">
-                {{ item.meta.title }}
+                {{ item.title }}
               </el-menu-item>
               <el-sub-menu :index="`item_`+item.id" v-else>
-                <template #title>{{ item.meta.title }}</template>
+                <template #title>{{ item.title }}</template>
                 <el-menu-item v-for="sub in item.children" :key="sub.id" :index="`sub_`+sub.id"
                               @click="getPath(sub.path)">
-                  {{ sub.meta.title }}
+                  {{ sub.title }}
                 </el-menu-item>
               </el-sub-menu>
             </div>

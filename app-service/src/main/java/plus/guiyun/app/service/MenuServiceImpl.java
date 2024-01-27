@@ -1,8 +1,8 @@
 package plus.guiyun.app.service;
 
-import com.alibaba.fastjson2.JSONObject;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import plus.guiyun.app.api.MenuService;
@@ -22,7 +22,8 @@ public class MenuServiceImpl extends CurdServiceImpl<MenuRepository, MenuDO, Lon
     private MenuRepository repository;
 
     public List<MenuTree> getMenuTree() {
-        List<MenuDO> list = repository.findAll();
+        Sort sort = Sort.by("sortBy");
+        List<MenuDO> list = repository.findAll(sort);
         List<MenuTree> rootList = getRootMenuList(list); // 获取根菜单列表
         if (rootList != null) {
             for (MenuTree rootMenu : rootList) {
@@ -64,9 +65,6 @@ public class MenuServiceImpl extends CurdServiceImpl<MenuRepository, MenuDO, Lon
             if (Objects.equals(menu.getParentId(), parentId)) {
                 MenuTree tree = new MenuTree();
                 BeanUtils.copyProperties(menu, tree);
-                if (!ObjectUtils.isEmpty(menu.getMeta())) {
-                    tree.setMeta(JSONObject.parse(menu.getMeta()));
-                }
                 trees.add(tree);
             }
         }
@@ -84,9 +82,6 @@ public class MenuServiceImpl extends CurdServiceImpl<MenuRepository, MenuDO, Lon
             if (ObjectUtils.isEmpty(menu.getParentId())) {
                 MenuTree tree = new MenuTree();
                 BeanUtils.copyProperties(menu, tree);
-                if (!ObjectUtils.isEmpty(menu.getMeta())) {
-                    tree.setMeta(JSONObject.parse(menu.getMeta()));
-                }
                 trees.add(tree);
             }
         }
