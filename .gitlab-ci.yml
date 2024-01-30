@@ -1,6 +1,6 @@
 stages:
   - build
-
+  - deploy
 
 build_service:
   stage: build
@@ -23,3 +23,12 @@ build_web:
     - yarn install
     - yarn run build
     - echo "eslint pass！"
+
+
+deploy_service:
+  stage: deploy
+  script:
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >>  ~/.ssh/id_rsa
+    - chmod -R 700 ~/.ssh
+    - ssh -t -o StrictHostKeyChecking=no root@$HOST_SHANGHAI "cd /home/app/docker-compose && docker compose pull && docker compose up -d --build"
