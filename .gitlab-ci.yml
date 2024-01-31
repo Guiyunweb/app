@@ -32,3 +32,11 @@ deploy_service:
     - echo "$SSH_PRIVATE_KEY" >>  ~/.ssh/id_rsa
     - chmod -R 700 ~/.ssh
     - ssh -t -o StrictHostKeyChecking=no root@$HOST_SHANGHAI "cd /home/app/docker-compose && docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY && docker compose pull && docker compose up -d --build"
+
+
+deploy_web:
+  stage: deploy
+  retry: 2
+  script:
+    - scp -r -o StrictHostKeyChecking=no dist/* root@$HOST_SHANGHAI:/home/app/html
+    - echo "deploy success"
