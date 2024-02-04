@@ -22,7 +22,18 @@ build_web:
     - cd app-ui/
     - yarn install
     - yarn run build
+    - cd ..
     - echo "eslint pass！"
+  # 设置缓存
+  cache:
+    key: binaries-cache
+    policy: pull-push
+    paths:
+      - app-ui/node_modules/
+  artifacts:
+    name: "$CI_COMMIT_REF_NAME"
+    paths:
+      - app-ui/dist/*
 
 
 deploy_service:
@@ -38,5 +49,5 @@ deploy_web:
   stage: deploy
   retry: 2
   script:
-    - scp -r -o StrictHostKeyChecking=no dist/* root@$HOST_SHANGHAI:/home/app/html
+    - scp -r -o StrictHostKeyChecking=no app-ui/dist/* root@$HOST_SHANGHAI:/home/app/html
     - echo "deploy success"
