@@ -34,7 +34,7 @@ build_web:
 
 deploy_service:
   stage: deploy
-  needs: [ "build_web" ]
+  needs: [ "build_service" ]
   script:
     - mkdir -p ~/.ssh
     - echo "$SSH_PRIVATE_KEY" >>  ~/.ssh/id_rsa
@@ -45,7 +45,7 @@ deploy_service:
 deploy_web:
   stage: deploy
   retry: 2
-  needs: [ "build_service" ]
+  needs: [ "build_web" ]
   script:
     - scp -r -o StrictHostKeyChecking=no app-ui/dist/* root@$HOST_SHANGHAI:/home/app/html
     - echo "deploy success"
