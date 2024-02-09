@@ -1,6 +1,8 @@
 build_service:
   stage: build
   retry: 2
+  tags:
+    - java
   script:
     - export JAVA_HOME=/usr/local/jdk17/
     - export PATH=$JAVA_HOME/bin:$PATH
@@ -14,6 +16,8 @@ build_service:
 build_web:
   stage: build
   retry: 2
+  tags:
+    - web
   script:
     - cd app-ui/
     - yarn install
@@ -35,6 +39,8 @@ build_web:
 deploy_service:
   stage: deploy
   needs: [ "build_service" ]
+  tags:
+    - deploy
   script:
     - mkdir -p ~/.ssh
     - echo "$SSH_PRIVATE_KEY" >>  ~/.ssh/id_rsa
@@ -44,6 +50,8 @@ deploy_service:
 
 deploy_web:
   stage: deploy
+  tags:
+    - deploy
   retry: 2
   needs: [ "build_web" ]
   script:
