@@ -55,5 +55,8 @@ deploy_web:
   retry: 2
   needs: [ "build_web" ]
   script:
+    - mkdir -p ~/.ssh
+    - echo "$SSH_PRIVATE_KEY" >>  ~/.ssh/id_rsa
+    - chmod -R 700 ~/.ssh
     - scp -r -o StrictHostKeyChecking=no app-ui/dist/* root@$HOST_SHANGHAI:/home/app/html
     - echo "deploy success"
