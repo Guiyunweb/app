@@ -14,9 +14,9 @@ spring:
       ddl-auto: update
   data:
     redis:
-      host: ${REDIS_HOST:app}
+      host: ${REDIS_HOST:127.0.0.1}
       port: ${REDIS_POST:6379}
-      database: ${REDIS_DATABASE:1}
+      database: ${REDIS_DATABASE:0}
       timeout: 30s
       password: ${REDIS_PASSWORD:}
       lettuce:

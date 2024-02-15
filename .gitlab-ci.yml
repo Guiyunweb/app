@@ -23,7 +23,7 @@ build_web:
     - yarn install
     - yarn run build
     - cd ..
-    - echo "eslint pass！"
+    - echo "build success！"
   # 设置缓存
   cache:
     key: binaries-cache
@@ -39,6 +39,7 @@ build_web:
 deploy_service:
   stage: deploy
   needs: [ "build_service" ]
+  retry: 2
   tags:
     - deploy
   script:
@@ -58,5 +59,6 @@ deploy_web:
     - mkdir -p ~/.ssh
     - echo "$SSH_PRIVATE_KEY" >>  ~/.ssh/id_rsa
     - chmod -R 700 ~/.ssh
+    - ssh -t -o StrictHostKeyChecking=no root@$HOST_SHANGHAI "rm -rf /home/app/html/*"
     - scp -r -o StrictHostKeyChecking=no app-ui/dist/* root@$HOST_SHANGHAI:/home/app/html
     - echo "deploy success"
