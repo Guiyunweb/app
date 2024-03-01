@@ -38,7 +38,7 @@ public class UserServiceImpl extends CurdServiceImpl<UserRepository, UserDo, Lon
     public LoginUser login(String account, String password) {
         UserDo userDo = repository.findByAccount(account);
         if (ObjectUtils.isEmpty(userDo)) {
-            throw new ServiceException("对不起,登录用户：" + account + " 不存在");
+            throw new ServiceException("对不起,登录用户 " + account + " 不存在");
         }
 
         if (SecurityUtils.matchesPassword(password, userDo.getPassword())) {

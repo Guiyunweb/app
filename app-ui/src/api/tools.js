@@ -67,12 +67,6 @@ export function errorLog (error) {
     util.log.danger('>>>>>> Error >>>>>>')
     console.log(error)
   }
-  // 显示提示
-  Message({
-    message: error.message,
-    type: 'error',
-    duration: 5 * 1000
-  })
 }
 
 /**
@@ -83,4 +77,13 @@ export function errorCreate (msg) {
   const error = new Error(msg)
   errorLog(error)
   throw error
+}
+
+export function showMessage (type, msg) {
+  // 显示提示
+  Message({
+    message: msg,
+    type: type,
+    duration: 5 * 1000
+  })
 }

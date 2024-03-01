@@ -28,7 +28,7 @@
           <d2-header-size v-if="$env === 'development'" />
           <d2-header-locales v-if="$env === 'development'" />
           <d2-header-color v-if="$env === 'development'" />
-          <d2-header-user v-if="$env === 'development'" />
+          <d2-header-user />
         </div>
       </div>
       <!-- 下面 主体 -->

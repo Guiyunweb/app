@@ -51,7 +51,7 @@ public class GlobalExceptionHandler {
     public AjaxResult handleServiceException(ServiceException e, HttpServletRequest request) {
         log.error(e.getMessage(), e);
         Integer code = e.getCode();
-        return StringUtils.isNotNull(code) ? AjaxResult.error(e.getMessage(), code) : AjaxResult.error(e.getMessage());
+        return StringUtils.isNotNull(code) ? AjaxResult.showError(e.getMessage(), code) : AjaxResult.showError(e.getMessage());
     }
 
     /**
@@ -91,6 +91,6 @@ public class GlobalExceptionHandler {
     public AjaxResult handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
         log.error(e.getMessage(), e);
         String message = e.getBindingResult().getFieldError().getDefaultMessage();
-        return AjaxResult.error(message);
+        return AjaxResult.showError(message);
     }
 }
