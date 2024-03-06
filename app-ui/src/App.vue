@@ -1,28 +1,22 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+  <el-config-provider :locale="currentLocale">
+    <router-view />
+  </el-config-provider>
 </template>
 
-<script>
-import util from '@/libs/util'
-export default {
-  name: 'app',
-  watch: {
-    '$i18n.locale': 'i18nHandle'
+<script lang="ts">
+import { defineComponent } from "vue";
+import { ElConfigProvider } from "element-plus";
+import zhCn from "element-plus/lib/locale/lang/zh-cn";
+export default defineComponent({
+  name: "app",
+  components: {
+    [ElConfigProvider.name]: ElConfigProvider
   },
-  created () {
-    this.i18nHandle(this.$i18n.locale)
-  },
-  methods: {
-    i18nHandle (val, oldVal) {
-      util.cookies.set('lang', val)
-      document.querySelector('html').setAttribute('lang', val)
+  computed: {
+    currentLocale() {
+      return zhCn;
     }
   }
-}
+});
 </script>
-
-<style lang="scss">
-@import '~@/assets/style/public-class.scss';
-</style>

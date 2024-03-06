@@ -1,14 +1,11 @@
-# 忽略目录
-build/
-tests/
-node_modules/
-
-# D2CRUD 演示
-src/views/demo/d2-crud/
-
-# node 覆盖率文件
-coverage/
-
-# 忽略文件
-**/*-min.js
-**/*.min.js
+public
+dist
+*.d.ts
+/src/assets
+package.json
+.eslintrc.js
+.prettierrc.js
+commitlint.config.js
+postcss.config.js
+tailwind.config.js
+stylelint.config.js
