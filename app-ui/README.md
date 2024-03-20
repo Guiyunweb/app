@@ -1,63 +1,57 @@
-<h1>vue-pure-admin精简版（非国际化版本）</h1>
+# Ant Design Pro
 
-[![license](https://img.shields.io/github/license/xiaoxian521/vue-pure-admin.svg)](LICENSE)
+This project is initialized with [Ant Design Pro](https://pro.ant.design). Follow is the quick guide for how to use.
 
-**中文** | [English](./README.en-US.md)
+## Environment Prepare
 
-## 介绍
+Install `node_modules`:
 
-精简版是基于 [vue-pure-admin](https://github.com/xiaoxian521/vue-pure-admin) 提炼出的架子，包含主体功能，更适合实际项目开发，打包后的大小在全局引入 [element-plus](https://element-plus.org) 的情况下仍然低于 `2.3MB`，并且会永久同步完整版的代码。开启 `brotli` 压缩和 `cdn` 替换本地库模式后，打包大小低于 `350kb`
+```bash
+npm install
+```
 
-## 版本选择
+or
 
-当前是非国际化版本哦，如果您需要国际化版本 [请点击](https://github.com/xiaoxian521/pure-admin-thin/tree/i18n)
+```bash
+yarn
+```
 
-## 配套视频
+## Provided Scripts
 
-- [点我查看教程](https://www.bilibili.com/video/BV1534y1S7HV)
-- [点我查看 UI 设计](https://www.bilibili.com/video/BV17g411T7rq)
+Ant Design Pro provides some useful script to help you quick start and build with web project, code style check and test.
 
-## 配套文档
+Scripts provided in `package.json`. It's safe to modify or add additional script:
 
-- [点我查看国内文档站](https://yiming_chang.gitee.io/pure-admin-doc)
-- [点我查看国外文档站](https://xiaoxian521.github.io/pure-admin-doc)
+### Start project
 
-## 维护者
+```bash
+npm start
+```
 
-[xiaoxian521](https://github.com/xiaoxian521)
+### Build project
 
-## 支持
+```bash
+npm run build
+```
 
-如果你觉得这个项目对您有帮助，可以帮作者买一杯果汁 🍹 表示支持
+### Check code style
 
-<img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f69bf13c5b854ed5b699807cafa0e3ce~tplv-k3u1fbpfcp-zoom-in-crop-mark:1304:0:0:0.awebp?" width="150px" height="150px" />
+```bash
+npm run lint
+```
 
-## `QQ` 交流群
+You can also use script to auto fix some lint error:
 
-[点击去加入](https://yiming_chang.gitee.io/pure-admin-doc/pages/support/#qq-%E4%BA%A4%E6%B5%81%E7%BE%A4)
+```bash
+npm run lint:fix
+```
 
-## 用法
+### Test code
 
-### 安装依赖
+```bash
+npm test
+```
 
-pnpm install
+## More
 
-### 安装一个包
-
-pnpm add 包名
-
-### 卸载一个包
-
-pnpm remove 包名
-
-我认为你应该先 `fork` 项目去开发，以便我更新时您可以同步拉取更新！！！
-
-## ⚠️ 注意
-
-- 精简版不接受任何 `issues` 和 `pr`，如果有问题请到完整版 [issues](https://github.com/xiaoxian521/vue-pure-admin/issues/new/choose) 去提，谢谢！！！
-
-## 许可证
-
-原则上不收取任何费用及版权，可以放心使用，不过如需二次开源（比如用此平台二次开发并开源）请联系作者获取许可！
-
-[MIT © xiaoxian521-2020](./LICENSE)
+You can view full document on our [official website](https://pro.ant.design). And welcome any feedback in our [github](https://github.com/ant-design/ant-design-pro).

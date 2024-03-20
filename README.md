@@ -4,6 +4,6 @@ Java模版
 
 - spring boot 3.0
 - spring data jpa
-- vue 3.0
+- React
 
 

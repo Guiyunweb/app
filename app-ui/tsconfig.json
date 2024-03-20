@@ -2,44 +2,22 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "moduleResolution": "Node",
-    "strict": false,
-    "jsx": "preserve",
+    "moduleResolution": "node",
     "importHelpers": true,
-    "experimentalDecorators": true,
-    "strictFunctionTypes": false,
-    "skipLibCheck": true,
+    "jsx": "preserve",
     "esModuleInterop": true,
-    "isolatedModules": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
     "sourceMap": true,
-    "baseUrl": ".",
-    "allowJs": false,
+    "baseUrl": "./",
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "strict": true,
     "resolveJsonModule": true,
-    "lib": ["dom", "esnext"],
-    "incremental": true,
+    "allowSyntheticDefaultImports": true,
     "paths": {
-      "@/*": ["src/*"],
-      "@build/*": ["build/*"]
-    },
-    "types": [
-      "node",
-      "vite/client",
-      "element-plus/global",
-      "@pureadmin/table/volar",
-      "@pureadmin/descriptions/volar",
-      "unplugin-vue-define-options/macros-global"
-    ],
-    "typeRoots": ["./node_modules/@types/", "./types"]
+      "@/*": ["./src/*"],
+      "@@/*": ["./src/.umi/*"],
+      "@@test/*": ["./src/.umi-test/*"]
+    }
   },
-  "include": [
-    "mock/*.ts",
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "types/*.d.ts",
-    "vite.config.ts"
-  ],
-  "exclude": ["node_modules", "dist", "**/*.js"]
+  "include": ["./**/*.d.ts", "./**/*.ts", "./**/*.tsx"]
 }
