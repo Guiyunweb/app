@@ -4,6 +4,6 @@ Java模版
 
 - spring boot 3.0
 - spring data jpa
-- React
+- Ant Design Pro
 
 
