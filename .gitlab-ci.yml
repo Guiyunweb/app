@@ -20,16 +20,10 @@ build_web:
     - web
   script:
     - cd app-ui/
-    - yarn install
-    - yarn run build
+    - pnpm install
+    - pnpm run build
     - cd ..
     - echo "build success！"
-  # 设置缓存
-  cache:
-    key: binaries-cache
-    policy: pull-push
-    paths:
-      - app-ui/node_modules/
   artifacts:
     name: "$CI_COMMIT_REF_NAME"
     paths:
