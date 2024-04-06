@@ -173,12 +173,12 @@ const Login: React.FC = () => {
             autoLogin: true,
           }}
           actions={[
-            <FormattedMessage
-              key="loginWith"
-              id="pages.login.loginWith"
-              defaultMessage="其他登录方式"
-            />,
-            <ActionIcons key="icons" />,
+            // <FormattedMessage
+            //   key="loginWith"
+            //   id="pages.login.loginWith"
+            //   defaultMessage="其他登录方式"
+            // />,
+            // <ActionIcons key="icons" />,
           ]}
           onFinish={async (values) => {
             await handleSubmit(values as API.LoginParams);
@@ -189,20 +189,20 @@ const Login: React.FC = () => {
             onChange={setType}
             centered
             items={[
-              {
-                key: 'account',
-                label: intl.formatMessage({
-                  id: 'pages.login.accountLogin.tab',
-                  defaultMessage: '账户密码登录',
-                }),
-              },
-              {
-                key: 'mobile',
-                label: intl.formatMessage({
-                  id: 'pages.login.phoneLogin.tab',
-                  defaultMessage: '手机号登录',
-                }),
-              },
+              // {
+              //   key: 'account',
+              //   label: intl.formatMessage({
+              //     id: 'pages.login.accountLogin.tab',
+              //     defaultMessage: '账户密码登录',
+              //   }),
+              // },
+              // {
+              //   key: 'mobile',
+              //   label: intl.formatMessage({
+              //     id: 'pages.login.phoneLogin.tab',
+              //     defaultMessage: '手机号登录',
+              //   }),
+              // },
             ]}
           />
 
@@ -358,7 +358,7 @@ const Login: React.FC = () => {
                 float: 'right',
               }}
             >
-              <FormattedMessage id="pages.login.forgotPassword" defaultMessage="忘记密码" />
+              {/*<FormattedMessage id="pages.login.forgotPassword" defaultMessage="忘记密码" />*/}
             </a>
           </div>
         </LoginForm>
