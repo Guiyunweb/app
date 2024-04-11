@@ -56,13 +56,23 @@ declare namespace API {
     success?: boolean;
   };
 
+  type Result = {
+    success: boolean;
+    code: string;
+    message?: string;
+    data?: any;
+    traceId?: string;
+    showType?: boolean;
+    "encrypt": boolean;
+  };
+
   type FakeCaptcha = {
     code?: number;
     status?: string;
   };
 
   type LoginParams = {
-    username?: string;
+    account?: string;
     password?: string;
     autoLogin?: boolean;
     type?: string;
