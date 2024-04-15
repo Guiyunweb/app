@@ -6,8 +6,8 @@ import {
   ProFormTextArea,
   StepsForm,
 } from '@ant-design/pro-components';
-import { FormattedMessage, useIntl } from '@umijs/max';
-import { Modal } from 'antd';
+import {FormattedMessage, useIntl} from '@umijs/max';
+import {Modal} from 'antd';
 import React from 'react';
 
 export type FormValueType = {

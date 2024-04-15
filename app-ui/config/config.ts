@@ -1,6 +1,6 @@
 // https://umijs.org/config/
-import { defineConfig } from '@umijs/max';
-import { join } from 'path';
+import {defineConfig} from '@umijs/max';
+import {join} from 'path';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
 import routes from './routes';
@@ -96,10 +96,10 @@ export default defineConfig({
    */
   locale: {
     // default zh-CN
-    default: 'zh-CN',
-    antd: true,
-    // default true, when it is true, will use `navigator.language` overwrite default
-    baseNavigator: true,
+    // default: 'zh-CN',
+    // antd: true,
+    // // default true, when it is true, will use `navigator.language` overwrite default
+    // baseNavigator: true,
   },
   /**
    * @name antd 插件
@@ -135,18 +135,18 @@ export default defineConfig({
    * @doc https://pro.ant.design/zh-cn/docs/openapi/
    */
   openAPI: [
-    // {
-    //   requestLibPath: "import { request } from '@umijs/max'",
-    //   // 或者使用在线的版本
-    //   // schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json"
-    //   schemaPath: join(__dirname, 'oneapi.json'),
-    //   mock: false,
-    // },
-    // {
-    //   requestLibPath: "import { request } from '@umijs/max'",
-    //   schemaPath: 'https://gw.alipayobjects.com/os/antfincdn/CA1dOm%2631B/openapi.json',
-    //   projectName: 'swagger',
-    // },
+    {
+      requestLibPath: "import { request } from '@umijs/max'",
+      // 或者使用在线的版本
+      // schemaPath: "https://gw.alipayobjects.com/os/antfincdn/M%24jrzTTYJN/oneapi.json"
+      schemaPath: join(__dirname, 'oneapi.json'),
+      mock: false,
+    },
+    {
+      requestLibPath: "import { request } from '@umijs/max'",
+      schemaPath: 'https://gw.alipayobjects.com/os/antfincdn/CA1dOm%2631B/openapi.json',
+      projectName: 'swagger',
+    },
   ],
   mfsu: {
     strategy: 'normal',
