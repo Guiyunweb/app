@@ -102,7 +102,9 @@ export const errorConfig: RequestConfig = {
       const { data } = response as unknown as ResponseStructure;
 
       if (data?.success === false) {
-        message.error('请求失败！');
+        if (data?.showType) {
+          message.error(data.message);
+        }
       }
       return response;
     },
