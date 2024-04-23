@@ -9,6 +9,7 @@ import {Alert, message, Tabs} from 'antd';
 import Settings from '../../../../config/defaultSettings';
 import React, {useState} from 'react';
 import {flushSync} from 'react-dom';
+import {cookies} from "@/utils/cookies";
 
 // const ActionIcons = () => {
 //   const langClassName = useEmotionCss(({ token }) => {
@@ -112,6 +113,7 @@ const Login: React.FC = () => {
           defaultMessage: '登录成功！',
         });
         message.success(defaultLoginSuccessMessage);
+        cookies.set("token",res.data.token)
         await fetchUserInfo();
         const urlParams = new URL(window.location.href).searchParams;
         history.push(urlParams.get('redirect') || '/');

@@ -65,6 +65,16 @@ public class TokenService {
         return null;
     }
 
+    public static String getLoginUUID(HttpServletRequest request) {
+        String token = getToken(request);
+        if (StringUtils.isNotEmpty(token)) {
+            DecodedJWT decodedJWT = parseToken(token);
+            String uuid = decodedJWT.getClaim(Constants.LOGIN_USER_KEY).asString();
+            return  getTokenKey(uuid);
+        }
+        return null;
+    }
+
 
     /**
      * 刷新令牌有效期
@@ -90,7 +100,7 @@ public class TokenService {
      * @param token 令牌
      * @return 数据声明
      */
-    private DecodedJWT parseToken(String token) {
+    private static DecodedJWT parseToken(String token) {
         DecodedJWT decodedJWT;
         try {
             Algorithm algorithm = Algorithm.HMAC512(TokenConfig.secret);
@@ -119,7 +129,7 @@ public class TokenService {
      * @param request
      * @return token
      */
-    private String getToken(HttpServletRequest request) {
+    private static String getToken(HttpServletRequest request) {
         String token = request.getHeader(TokenConfig.header);
         if (StringUtils.isNotEmpty(token) && token.startsWith(Constants.TOKEN_PREFIX)) {
             token = token.replace(Constants.TOKEN_PREFIX, "");
@@ -128,7 +138,7 @@ public class TokenService {
     }
 
 
-    private String getTokenKey(String uuid) {
+    private static String getTokenKey(String uuid) {
         return CacheConstants.LOGIN_TOKEN_KEY + uuid;
     }
 

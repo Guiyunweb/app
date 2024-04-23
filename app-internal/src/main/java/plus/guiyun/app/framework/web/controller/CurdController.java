@@ -1,13 +1,24 @@
 package plus.guiyun.app.framework.web.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import plus.guiyun.app.common.code.domain.AjaxResult;
 import plus.guiyun.app.common.code.domain.Pagination;
+import plus.guiyun.app.common.code.domain.model.LoginUser;
+import plus.guiyun.app.common.code.redis.RedisCache;
+import plus.guiyun.app.common.constant.CacheConstants;
+import plus.guiyun.app.common.utils.JWTUtil;
+import plus.guiyun.app.framework.config.TokenConfig;
 import plus.guiyun.app.framework.web.service.CurdService;
+import plus.guiyun.app.framework.web.service.TokenService;
+
+import java.util.Objects;
 
 
 /**
@@ -21,6 +32,9 @@ public class CurdController<S extends CurdService<T, ID>, T, ID> {
 
     @Autowired
     private S service;
+
+    @Autowired
+    RedisCache redisCache;
 
     @GetMapping("/list")
     public AjaxResult<Pagination<T>> list(Pagination<T> pagination, T t) {
@@ -59,6 +73,19 @@ public class CurdController<S extends CurdService<T, ID>, T, ID> {
     public AjaxResult<T> remove(@PathVariable ID[] ids) {
         service.deleteAllById(ids);
         return AjaxResult.success();
+    }
+
+
+    /**
+     * 获取用户
+     *
+     * @return
+     */
+    public LoginUser getUserInfo() {
+        HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes()))
+                .getRequest();
+        String uuid = TokenService.getLoginUUID(request);
+        return redisCache.getCacheObject(uuid);
     }
 
 }
