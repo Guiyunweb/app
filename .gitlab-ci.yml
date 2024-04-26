@@ -20,8 +20,8 @@ build_web:
     - web
   script:
     - cd app-ui/
-    - pnpm install
-    - pnpm run build
+    - yarn install
+    - yarn run build
     - cd ..
     - echo "build success！"
   artifacts:
