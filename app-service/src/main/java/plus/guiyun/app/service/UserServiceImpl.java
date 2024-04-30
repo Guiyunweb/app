@@ -41,7 +41,7 @@ public class UserServiceImpl extends CurdServiceImpl<UserRepository, UserDo, Lon
             throw new ServiceException("对不起,登录用户 " + account + " 不存在");
         }
 
-        if (SecurityUtils.matchesPassword(password, userDo.getPassword())) {
+        if (!SecurityUtils.matchesPassword(password, userDo.getPassword())) {
             throw new ServiceException("对不起,密码错误");
         }
         userDo.setPassword(null);
