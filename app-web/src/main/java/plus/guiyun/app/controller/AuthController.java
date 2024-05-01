@@ -31,7 +31,7 @@ public class AuthController {
     @RequestMapping("/login")
     public AjaxResult<LoginUser> getUserName(@RequestBody @Valid LoginBody loginBody) {
         LoginUser loginUser = userService.login(loginBody.getAccount(), loginBody.getPassword());
-        return AjaxResult.showSuccess(loginUser, "登录成功");
+        return AjaxResult.success(loginUser, "登录成功");
     }
 
     @PostMapping("/outLogin")
