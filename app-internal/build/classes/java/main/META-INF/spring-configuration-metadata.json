@@ -1,0 +1,37 @@
+{
+  "groups": [
+    {
+      "name": "auth.ignored",
+      "type": "plus.guiyun.app.framework.config.IgnoreUrlsConfig",
+      "sourceType": "plus.guiyun.app.framework.config.IgnoreUrlsConfig"
+    },
+    {
+      "name": "auth.token",
+      "type": "plus.guiyun.app.framework.config.TokenConfig",
+      "sourceType": "plus.guiyun.app.framework.config.TokenConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "auth.ignored.urls",
+      "type": "java.lang.String[]",
+      "sourceType": "plus.guiyun.app.framework.config.IgnoreUrlsConfig"
+    },
+    {
+      "name": "auth.token.expire-time",
+      "type": "java.lang.Long",
+      "sourceType": "plus.guiyun.app.framework.config.TokenConfig"
+    },
+    {
+      "name": "auth.token.header",
+      "type": "java.lang.String",
+      "sourceType": "plus.guiyun.app.framework.config.TokenConfig"
+    },
+    {
+      "name": "auth.token.secret",
+      "type": "java.lang.String",
+      "sourceType": "plus.guiyun.app.framework.config.TokenConfig"
+    }
+  ],
+  "hints": []
+}
