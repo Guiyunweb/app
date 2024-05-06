@@ -20,6 +20,7 @@ build_web:
     - web
   script:
     - cd app-ui/
+    - export NODE_OPTIONS=--max-old-space-size=8192
     - pnpm install
     - pnpm run build
     - cd ..
