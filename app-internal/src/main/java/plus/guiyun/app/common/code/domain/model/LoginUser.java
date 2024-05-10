@@ -39,6 +39,9 @@ public class LoginUser implements UserDetails {
      */
     private BaseUser user;
 
+    public BaseUser getUser() {
+        return user;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

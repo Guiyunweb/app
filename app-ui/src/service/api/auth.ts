@@ -1,4 +1,4 @@
-import { mockRequest } from '../request';
+import {mockRequest, request} from '../request';
 
 /**
  * 获取验证码
@@ -11,16 +11,16 @@ export function fetchSmsCode(phone: string) {
 
 /**
  * 登录
- * @param userName - 用户名
+ * @param account - 用户名
  * @param password - 密码
  */
-export function fetchLogin(userName: string, password: string) {
-  return mockRequest.post<ApiAuth.Token>('/login', { userName, password });
+export function fetchLogin(account: string, password: string) {
+  return request.post<ApiAuth.Token>('/auth/login', { account, password });
 }
 
 /** 获取用户信息 */
 export function fetchUserInfo() {
-  return mockRequest.get<ApiAuth.UserInfo>('/getUserInfo');
+  return request.get<any>('/users/currentUser');
 }
 
 /**

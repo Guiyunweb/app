@@ -108,13 +108,13 @@ export const useRouteStore = defineStore('route-store', {
     async initDynamicRoute() {
       const { initHomeTab } = useTabStore();
 
-      const { userId } = localStg.get('userInfo') || {};
+      const { id } = localStg.get('userInfo') || {};
 
-      if (!userId) {
+      if (!id) {
         throw new Error('userId 不能为空!');
       }
 
-      const { error, data } = await fetchUserRoutes(userId);
+      const { error, data } = await fetchUserRoutes(id);
 
       if (!error) {
         this.routeHomeName = data.home;
