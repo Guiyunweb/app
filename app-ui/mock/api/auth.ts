@@ -24,9 +24,9 @@ const apis: MockMethod[] = [
     url: '/mock/login',
     method: 'post',
     response: (options: Service.MockOption): Service.MockServiceResult<ApiAuth.Token | null> => {
-      const { userName = undefined, password = undefined } = options.body;
+      const { username = undefined, password = undefined } = options.body;
 
-      if (!userName || !password) {
+      if (!username || !password) {
         return {
           code: ERROR_PARAM_CODE,
           message: ERROR_PARAM_MSG,
@@ -34,7 +34,7 @@ const apis: MockMethod[] = [
         };
       }
 
-      const findItem = userModel.find(item => item.userName === userName && item.password === password);
+      const findItem = userModel.find(item => item.username === username && item.password === password);
 
       if (findItem) {
         return {
@@ -70,15 +70,15 @@ const apis: MockMethod[] = [
         };
       }
       const userInfo: Auth.UserInfo = {
-        userId: '',
-        userName: '',
+        id: '',
+        username: '',
         userRole: 'user'
       };
       const isInUser = userModel.some(item => {
         const flag = item.token === authorization;
         if (flag) {
-          const { userId: itemUserId, userName, userRole } = item;
-          Object.assign(userInfo, { userId: itemUserId, userName, userRole });
+          const { id: itemUserId, username, userRole } = item;
+          Object.assign(userInfo, { userId: itemUserId, username, userRole });
         }
         return flag;
       });
