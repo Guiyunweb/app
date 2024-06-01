@@ -21,13 +21,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import { useAppStore, useRouteStore, useThemeStore } from '@/store';
-import { useRouterPush } from '@/composables';
-import { useBoolean } from '@/hooks';
-import { GlobalLogo } from '@/layouts/common';
-import { MixMenuCollapse, MixMenuDetail, MixMenuDrawer } from './components';
+import {computed, ref, watch} from 'vue';
+import {useRoute} from 'vue-router';
+import {useAppStore, useRouteStore, useThemeStore} from '@/store';
+import {useRouterPush} from '@/composables';
+import {useBoolean} from '@/hooks';
+import {GlobalLogo} from '@/layouts/common';
+import {MixMenuCollapse, MixMenuDetail, MixMenuDrawer} from './components';
 
 defineOptions({ name: 'VerticalMixSider' });
 

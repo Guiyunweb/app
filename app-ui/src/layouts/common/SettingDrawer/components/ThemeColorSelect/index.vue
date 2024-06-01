@@ -13,11 +13,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { isInTraditionColors } from '@/settings';
-import { useThemeStore } from '@/store';
-import { useBoolean } from '@/hooks';
-import { ColorCheckbox, ColorModal } from './components';
+import {computed} from 'vue';
+import {isInTraditionColors} from '@/settings';
+import {useThemeStore} from '@/store';
+import {useBoolean} from '@/hooks';
+import {ColorCheckbox, ColorModal} from './components';
 
 defineOptions({ name: 'ThemeColorSelect' });
 

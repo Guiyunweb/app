@@ -1,8 +1,8 @@
-import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router';
-import { routeName } from '@/router';
-import { useAuthStore } from '@/store';
-import { exeStrategyActions, localStg } from '@/utils';
-import { createDynamicRouteGuard } from './dynamic';
+import type {NavigationGuardNext, RouteLocationNormalized} from 'vue-router';
+import {routeName} from '@/router';
+import {useAuthStore} from '@/store';
+import {exeStrategyActions, localStg} from '@/utils';
+import {createDynamicRouteGuard} from './dynamic';
 
 /** 处理路由页面的权限 */
 export async function createPermissionGuard(

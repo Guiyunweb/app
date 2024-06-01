@@ -1,15 +1,15 @@
+import type {AxiosError, AxiosInstance, AxiosRequestConfig} from 'axios';
 import axios from 'axios';
-import type { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
-import { REFRESH_TOKEN_CODE } from '@/config';
+import {REFRESH_TOKEN_CODE} from '@/config';
 import {
-  localStg,
-  handleAxiosError,
-  handleBackendError,
-  handleResponseError,
-  handleServiceResult,
-  transformRequestData
+	handleAxiosError,
+	handleBackendError,
+	handleResponseError,
+	handleServiceResult,
+	localStg,
+	transformRequestData
 } from '@/utils';
-import { handleRefreshToken } from './helpers';
+import {handleRefreshToken} from './helpers';
 
 /**
  * 封装axios请求类

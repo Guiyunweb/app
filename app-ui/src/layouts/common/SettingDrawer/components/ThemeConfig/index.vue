@@ -10,9 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref, watch } from 'vue';
+import {onMounted, onUnmounted, ref, watch} from 'vue';
 import Clipboard from 'clipboard';
-import { useThemeStore } from '@/store';
+import {useThemeStore} from '@/store';
 
 defineOptions({ name: 'ThemeConfig' });
 

@@ -6,10 +6,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useAppStore, useThemeStore } from '@/store';
-import { GlobalLogo } from '@/layouts/common';
-import { VerticalMenu } from './components';
+import {computed} from 'vue';
+import {useAppStore, useThemeStore} from '@/store';
+import {GlobalLogo} from '@/layouts/common';
+import {VerticalMenu} from './components';
 
 defineOptions({ name: 'VerticalSider' });
 

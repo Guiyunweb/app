@@ -1,4 +1,4 @@
-import { viteMockServe } from 'vite-plugin-mock';
+import {viteMockServe} from 'vite-plugin-mock';
 
 export default viteMockServe({
   mockPath: 'mock',

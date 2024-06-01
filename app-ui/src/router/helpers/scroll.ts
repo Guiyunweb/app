@@ -1,5 +1,5 @@
-import type { RouterScrollBehavior } from 'vue-router';
-import { useTabStore } from '@/store';
+import type {RouterScrollBehavior} from 'vue-router';
+import {useTabStore} from '@/store';
 
 export const scrollBehavior: RouterScrollBehavior = (to, from) => {
   return new Promise(resolve => {

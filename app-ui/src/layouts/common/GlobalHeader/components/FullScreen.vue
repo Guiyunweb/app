@@ -6,8 +6,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useFullscreen } from '@vueuse/core';
-import { useThemeStore } from '@/store';
+import {useFullscreen} from '@vueuse/core';
+import {useThemeStore} from '@/store';
 
 defineOptions({ name: 'FullScreen' });
 

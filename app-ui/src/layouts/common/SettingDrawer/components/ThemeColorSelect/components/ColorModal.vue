@@ -23,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import { traditionColors } from '@/settings';
-import { useThemeStore } from '@/store';
+import {traditionColors} from '@/settings';
+import {useThemeStore} from '@/store';
 import ColorCheckbox from './ColorCheckbox.vue';
 
 defineOptions({ name: 'ColorModal' });

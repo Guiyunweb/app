@@ -16,8 +16,8 @@
 </template>
 
 <script setup lang="ts">
-import { useAppInfo } from '@/composables';
-import { localStg } from '@/utils';
+import {useAppInfo} from '@/composables';
+import {localStg} from '@/utils';
 
 const { title } = useAppInfo();
 

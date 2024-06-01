@@ -1,5 +1,6 @@
 package plus.guiyun.app.controller;
 
+import com.alibaba.fastjson2.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,12 @@ public class MenuController extends CurdController<MenuService, MenuDO, Long> {
     @GetMapping("/getMenuTree")
     public AjaxResult<List> getMenuTree() {
         return AjaxResult.success(service.getMenuTree());
+    }
+
+    @GetMapping("/test")
+    public AjaxResult<JSONObject> test() {
+        JSONObject param = JSONObject.parse("{\"routes\":[{\"name\":\"multi-menu\",\"path\":\"/multi-menu\",\"component\":\"basic\",\"children\":[{\"name\":\"multi-menu_first\",\"path\":\"/multi-menu/first\",\"component\":\"multi\",\"children\":[{\"name\":\"multi-menu_first_second\",\"path\":\"/multi-menu/first/second\",\"component\":\"self\",\"meta\":{\"title\":\"二级菜单\",\"requiresAuth\":true,\"icon\":\"mdi:menu\"}},{\"name\":\"multi-menu_first_second-new\",\"path\":\"/multi-menu/first/second-new\",\"component\":\"multi\",\"children\":[{\"name\":\"multi-menu_first_second-new_third\",\"path\":\"/multi-menu/first/second-new/third\",\"component\":\"self\",\"meta\":{\"title\":\"三级菜单\",\"requiresAuth\":true,\"icon\":\"mdi:menu\"}}],\"meta\":{\"title\":\"二级菜单(有子菜单)\",\"icon\":\"mdi:menu\"}}],\"meta\":{\"title\":\"一级菜单\",\"icon\":\"mdi:menu\"}}],\"meta\":{\"title\":\"多级菜单\",\"icon\":\"carbon:menu\",\"order\":7}}],\"home\":\"multi-menu_first_second\"}");
+        return AjaxResult.success(param);
     }
 
     @GetMapping("/getParentMenu")

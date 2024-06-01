@@ -20,11 +20,11 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
-import type { FormInst } from 'naive-ui';
-import { useRouterPush } from '@/composables';
-import { useSmsCode } from '@/hooks';
-import { formRules } from '@/utils';
+import {reactive, ref} from 'vue';
+import type {FormInst} from 'naive-ui';
+import {useRouterPush} from '@/composables';
+import {useSmsCode} from '@/hooks';
+import {formRules} from '@/utils';
 
 const { toLoginModule } = useRouterPush();
 const { label, isCounting, loading: smsLoading, getSmsCode } = useSmsCode();

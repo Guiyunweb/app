@@ -1,7 +1,7 @@
-import type { RouteComponent } from 'vue-router';
-import { BasicLayout, BlankLayout } from '@/layouts';
-import { views } from '@/views';
-import { isFunction } from '../common';
+import type {RouteComponent} from 'vue-router';
+import {BasicLayout, BlankLayout} from '@/layouts';
+import {views} from '@/views';
+import {isFunction} from '../common';
 
 type Lazy<T> = () => Promise<T>;
 

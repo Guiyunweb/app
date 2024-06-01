@@ -28,13 +28,13 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { Component } from 'vue';
-import { EnumLoginModule } from '@/enum';
-import { useThemeStore } from '@/store';
-import { useAppInfo } from '@/composables';
-import { getColorPalette, mixColor } from '@/utils';
-import { BindWechat, CodeLogin, LoginBg, PwdLogin, Register, ResetPwd } from './components';
+import type {Component} from 'vue';
+import {computed} from 'vue';
+import {EnumLoginModule} from '@/enum';
+import {useThemeStore} from '@/store';
+import {useAppInfo} from '@/composables';
+import {getColorPalette, mixColor} from '@/utils';
+import {BindWechat, CodeLogin, LoginBg, PwdLogin, Register, ResetPwd} from './components';
 
 interface Props {
   /** 登录模块分类 */

@@ -1,12 +1,12 @@
-import { unref, nextTick } from 'vue';
-import { defineStore } from 'pinia';
-import { router } from '@/router';
-import { fetchLogin, fetchUserInfo } from '@/service';
-import { useRouterPush } from '@/composables';
-import { localStg } from '@/utils';
-import { useTabStore } from '../tab';
-import { useRouteStore } from '../route';
-import { getToken, getUserInfo, clearAuthStorage } from './helpers';
+import {nextTick, unref} from 'vue';
+import {defineStore} from 'pinia';
+import {router} from '@/router';
+import {fetchLogin, fetchUserInfo} from '@/service';
+import {useRouterPush} from '@/composables';
+import {localStg} from '@/utils';
+import {useTabStore} from '../tab';
+import {useRouteStore} from '../route';
+import {clearAuthStorage, getToken, getUserInfo} from './helpers';
 
 interface AuthState {
   /** 用户信息 */

@@ -1,7 +1,7 @@
-import type { GlobalThemeOverrides } from 'naive-ui';
-import { cloneDeep } from 'lodash-es';
-import { themeSetting } from '@/settings';
-import { localStg, addColorAlpha, getColorPalette } from '@/utils';
+import type {GlobalThemeOverrides} from 'naive-ui';
+import {cloneDeep} from 'lodash-es';
+import {themeSetting} from '@/settings';
+import {addColorAlpha, getColorPalette, localStg} from '@/utils';
 
 /** 初始化主题配置 */
 export function initThemeSettings() {

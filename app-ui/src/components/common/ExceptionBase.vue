@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts" setup>
-import { routeName } from '@/router';
+import {routeName} from '@/router';
 
 defineOptions({ name: 'ExceptionBase' });
 

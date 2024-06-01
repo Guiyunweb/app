@@ -1,7 +1,7 @@
-import { ref } from 'vue';
-import type { Ref } from 'vue';
-import type { AxiosInstance, AxiosRequestConfig } from 'axios';
-import { useBoolean, useLoading } from '@/hooks';
+import type {Ref} from 'vue';
+import {ref} from 'vue';
+import type {AxiosInstance, AxiosRequestConfig} from 'axios';
+import {useBoolean, useLoading} from '@/hooks';
 import CustomAxiosInstance from './instance';
 
 type RequestMethod = 'get' | 'post' | 'put' | 'delete';

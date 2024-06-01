@@ -5,8 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '@/store';
-import { useLoading } from '@/hooks';
+import {useAppStore} from '@/store';
+import {useLoading} from '@/hooks';
 
 defineOptions({ name: 'ReloadButton' });
 

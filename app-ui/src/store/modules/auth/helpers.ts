@@ -1,4 +1,4 @@
-import { localStg } from '@/utils';
+import {localStg} from '@/utils';
 
 /** 获取token */
 export function getToken() {

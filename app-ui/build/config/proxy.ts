@@ -1,4 +1,4 @@
-import type { ProxyOptions } from 'vite';
+import type {ProxyOptions} from 'vite';
 
 /**
  * 设置网络代理

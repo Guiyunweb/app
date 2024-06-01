@@ -1,5 +1,5 @@
-import type { PluginOption } from 'vite';
-import { createHtmlPlugin } from 'vite-plugin-html';
+import type {PluginOption} from 'vite';
+import {createHtmlPlugin} from 'vite-plugin-html';
 
 export default (viteEnv: ImportMetaEnv): PluginOption[] => {
   return createHtmlPlugin({

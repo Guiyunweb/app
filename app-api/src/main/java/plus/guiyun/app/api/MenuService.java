@@ -1,12 +1,13 @@
 package plus.guiyun.app.api;
 
+import plus.guiyun.app.api.vo.MenuTree;
 import plus.guiyun.app.domain.MenuDO;
 import plus.guiyun.app.framework.web.service.CurdService;
 
 import java.util.List;
 
 public interface MenuService extends CurdService<MenuDO, Long> {
-    List getMenuTree();
+    List<MenuTree> getMenuTree();
 
     List<MenuDO> getParentMenu();
 }

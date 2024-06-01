@@ -1,7 +1,7 @@
-import { computed } from 'vue';
-import { REGEXP_PHONE } from '@/config';
-import { fetchSmsCode } from '@/service';
-import { useLoading } from '../common';
+import {computed} from 'vue';
+import {REGEXP_PHONE} from '@/config';
+import {fetchSmsCode} from '@/service';
+import {useLoading} from '../common';
 import useCountDown from './useCountDown';
 
 export default function useSmsCode() {

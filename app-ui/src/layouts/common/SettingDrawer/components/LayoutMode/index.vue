@@ -13,8 +13,8 @@
 </template>
 
 <script setup lang="ts">
-import { useThemeStore } from '@/store';
-import { LayoutCheckbox } from './components';
+import {useThemeStore} from '@/store';
+import {LayoutCheckbox} from './components';
 
 defineOptions({ name: 'LayoutMode' });
 

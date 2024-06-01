@@ -1,5 +1,5 @@
-import { computed, ref } from 'vue';
-import { useBoolean } from '../common';
+import {computed, ref} from 'vue';
+import {useBoolean} from '../common';
 
 /**
  * 倒计时

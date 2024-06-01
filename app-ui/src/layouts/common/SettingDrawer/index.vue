@@ -13,8 +13,8 @@
 </template>
 
 <script setup lang="ts">
-import { useAppStore } from '@/store';
-import { DarkMode, DrawerButton, LayoutMode, PageFunc, PageView, ThemeColorSelect, ThemeConfig } from './components';
+import {useAppStore} from '@/store';
+import {DarkMode, DrawerButton, LayoutMode, PageFunc, PageView, ThemeColorSelect, ThemeConfig} from './components';
 
 defineOptions({ name: 'SettingDrawer' });
 

@@ -1,6 +1,6 @@
-import type { App, Directive } from 'vue';
-import { useAuthStore } from '@/store';
-import { useRouterPush } from '@/composables';
+import type {App, Directive} from 'vue';
+import {useAuthStore} from '@/store';
+import {useRouterPush} from '@/composables';
 
 export default function setupLoginDirective(app: App) {
   const auth = useAuthStore();

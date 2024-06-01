@@ -16,9 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { PopoverPlacement } from 'naive-ui';
-import type { EnumThemeLayoutMode } from '@/enum';
+import {computed} from 'vue';
+import type {PopoverPlacement} from 'naive-ui';
+import type {EnumThemeLayoutMode} from '@/enum';
 
 defineOptions({ name: 'LayoutCheckbox' });
 

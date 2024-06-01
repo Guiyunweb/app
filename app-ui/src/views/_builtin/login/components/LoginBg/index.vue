@@ -10,9 +10,9 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
-import { getColorPalette } from '@/utils';
-import { CornerBottom, CornerTop } from './components';
+import {computed} from 'vue';
+import {getColorPalette} from '@/utils';
+import {CornerBottom, CornerTop} from './components';
 
 interface Props {
   /** 主题颜色 */

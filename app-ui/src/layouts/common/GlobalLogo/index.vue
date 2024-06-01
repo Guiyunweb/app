@@ -11,8 +11,8 @@
 </template>
 
 <script setup lang="ts">
-import { routePath } from '@/router';
-import { useAppInfo } from '@/composables'
+import {routePath} from '@/router';
+import {useAppInfo} from '@/composables'
 
 defineOptions({ name: 'GlobalLogo' });
 

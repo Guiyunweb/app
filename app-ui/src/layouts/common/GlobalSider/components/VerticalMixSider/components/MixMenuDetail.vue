@@ -16,9 +16,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import type { VNodeChild } from 'vue';
-import { useBoolean } from '@/hooks';
+import type {VNodeChild} from 'vue';
+import {computed} from 'vue';
+import {useBoolean} from '@/hooks';
 
 defineOptions({ name: 'MixMenuDetail' });
 

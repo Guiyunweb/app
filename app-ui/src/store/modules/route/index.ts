@@ -1,20 +1,20 @@
-import { defineStore } from 'pinia';
-import { ROOT_ROUTE, constantRoutes, router, routes as staticRoutes } from '@/router';
-import { fetchUserRoutes } from '@/service';
+import {defineStore} from 'pinia';
+import {constantRoutes, ROOT_ROUTE, router, routes as staticRoutes} from '@/router';
+import {fetchUserRoutes} from '@/service';
 import {
-  localStg,
-  filterAuthRoutesByUserPermission,
-  getCacheRoutes,
-  getConstantRouteNames,
-  transformAuthRouteToVueRoutes,
-  transformAuthRouteToVueRoute,
-  transformAuthRouteToMenu,
-  transformAuthRouteToSearchMenus,
-  transformRouteNameToRoutePath,
-  transformRoutePathToRouteName
+	filterAuthRoutesByUserPermission,
+	getCacheRoutes,
+	getConstantRouteNames,
+	localStg,
+	transformAuthRouteToMenu,
+	transformAuthRouteToSearchMenus,
+	transformAuthRouteToVueRoute,
+	transformAuthRouteToVueRoutes,
+	transformRouteNameToRoutePath,
+	transformRoutePathToRouteName
 } from '@/utils';
-import { useAuthStore } from '../auth';
-import { useTabStore } from '../tab';
+import {useAuthStore} from '../auth';
+import {useTabStore} from '../tab';
 
 interface RouteState {
   /**

@@ -16,12 +16,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
-import type { MenuOption } from 'naive-ui';
-import { useAppStore, useRouteStore, useThemeStore } from '@/store';
-import { useRouterPush } from '@/composables';
-import { getActiveKeyPathsOfMenus } from '@/utils';
+import {computed, ref, watch} from 'vue';
+import {useRoute} from 'vue-router';
+import type {MenuOption} from 'naive-ui';
+import {useAppStore, useRouteStore, useThemeStore} from '@/store';
+import {useRouterPush} from '@/composables';
+import {getActiveKeyPathsOfMenus} from '@/utils';
 
 defineOptions({ name: 'VerticalMenu' });
 

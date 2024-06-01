@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import { useAppStore } from '@/store';
+import {useAppStore} from '@/store';
 
 defineOptions({ name: 'MixMenuCollapse' });
 

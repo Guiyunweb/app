@@ -1,6 +1,6 @@
-import { ref } from 'vue';
-import type { Ref } from 'vue';
-import { useContext } from '@/hooks';
+import type {Ref} from 'vue';
+import {ref} from 'vue';
+import {useContext} from '@/hooks';
 
 interface DemoContext {
   counts: Ref<number>;
