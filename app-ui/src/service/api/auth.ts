@@ -1,4 +1,4 @@
-import {mockRequest, request} from '../request';
+import { mockRequest, request } from '../request';
 
 /**
  * 获取验证码
@@ -28,14 +28,14 @@ export function fetchUserInfo() {
  * @param userId - 用户id
  * @description 后端根据用户id查询到对应的角色类型，并将路由筛选出对应角色的路由数据返回前端
  */
-export function fetchUserRoutes(userId: string) {
-  return mockRequest.post<ApiRoute.Route>('/getUserRoutes', { userId });
+export function fetchUserRoutes() {
+  return request.get<ApiRoute.Route>('/menu/getMenuTree');
 }
 
 /**
  * 刷新token
  * @param refreshToken
  */
-export function fetchUpdateToken(refreshToken: string) {
-  return mockRequest.post<ApiAuth.Token>('/updateToken', { refreshToken });
+export function fetchUpdateToken() {
+  return request.get<ApiAuth.Token>('/auth/updateToken');
 }

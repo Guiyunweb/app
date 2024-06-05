@@ -1,12 +1,12 @@
-import {nextTick, unref} from 'vue';
-import {defineStore} from 'pinia';
-import {router} from '@/router';
-import {fetchLogin, fetchUserInfo} from '@/service';
-import {useRouterPush} from '@/composables';
-import {localStg} from '@/utils';
-import {useTabStore} from '../tab';
-import {useRouteStore} from '../route';
-import {clearAuthStorage, getToken, getUserInfo} from './helpers';
+import { unref, nextTick } from 'vue';
+import { defineStore } from 'pinia';
+import { router } from '@/router';
+import { fetchLogin, fetchUserInfo } from '@/service';
+import { useRouterPush } from '@/composables';
+import { localStg } from '@/utils';
+import { useTabStore } from '../tab';
+import { useRouteStore } from '../route';
+import { getToken, getUserInfo, clearAuthStorage } from './helpers';
 
 interface AuthState {
   /** 用户信息 */
@@ -96,10 +96,10 @@ export const useAuthStore = defineStore('auth-store', {
       const { data } = await fetchUserInfo();
       if (data) {
         // 成功后把用户信息存储到缓存中
-        localStg.set('userInfo', data.user);
+        localStg.set('userInfo', data);
 
         // 更新状态
-        this.userInfo = data.user;
+        this.userInfo = data;
         this.token = token;
 
         successFlag = true;

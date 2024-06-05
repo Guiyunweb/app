@@ -1,7 +1,7 @@
 import qs from 'qs';
 import FormData from 'form-data';
-import {EnumContentType} from '@/enum';
-import {isArray, isFile} from '../common';
+import { EnumContentType } from '@/enum';
+import { isArray, isFile } from '../common';
 
 /**
  * 请求数据的转换

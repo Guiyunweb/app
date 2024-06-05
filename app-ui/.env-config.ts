@@ -6,11 +6,11 @@ const serviceEnv: ServiceEnv = {
   dev: {
     url: 'http://localhost:8089',
     urlPattern: '/url-pattern',
-    secondUrl: 'http://localhost:8081',
+    secondUrl: 'http://localhost:8089',
     secondUrlPattern: '/second-url-pattern'
   },
   test: {
-    url: 'http://localhost:8089',
+    url: 'http://localhost:8080',
     urlPattern: '/url-pattern',
     secondUrl: 'http://localhost:8081',
     secondUrlPattern: '/second-url-pattern'

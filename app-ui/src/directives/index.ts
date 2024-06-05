@@ -1,4 +1,4 @@
-import type {App} from 'vue';
+import type { App } from 'vue';
 import setupNetworkDirective from './network';
 import setupLoginDirective from './login';
 import setupPermissionDirective from './permission';

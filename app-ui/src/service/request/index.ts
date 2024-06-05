@@ -1,5 +1,5 @@
-import {getServiceEnvConfig} from '~/.env-config';
-import {createRequest} from './request';
+import { getServiceEnvConfig } from '~/.env-config';
+import { createRequest } from './request';
 
 const { url, urlPattern, secondUrl, secondUrlPattern } = getServiceEnvConfig(import.meta.env);
 

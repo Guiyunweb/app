@@ -1,5 +1,5 @@
-import type {RouteRecordRaw} from 'vue-router';
-import {getLayoutComponent, getViewComponent} from './component';
+import type { RouteRecordRaw } from 'vue-router';
+import { getLayoutComponent, getViewComponent } from './component';
 
 /**
  * 将权限路由转换成vue路由

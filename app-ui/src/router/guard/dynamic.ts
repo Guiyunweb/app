@@ -1,7 +1,7 @@
-import type {NavigationGuardNext, RouteLocationNormalized} from 'vue-router';
-import {routeName} from '@/router';
-import {useRouteStore} from '@/store';
-import {localStg} from '@/utils';
+import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router';
+import { routeName } from '@/router';
+import { useRouteStore } from '@/store';
+import { localStg } from '@/utils';
 
 /**
  * 动态路由

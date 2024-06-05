@@ -32,10 +32,10 @@
 </template>
 
 <script setup lang="ts">
-import {computed, nextTick, reactive, ref, watch} from 'vue';
-import {ButtonTab, ChromeTab} from '@soybeanjs/vue-admin-tab';
-import {useTabStore, useThemeStore} from '@/store';
-import {ContextMenu} from './components';
+import { computed, nextTick, reactive, ref, watch } from 'vue';
+import { ButtonTab, ChromeTab } from '@soybeanjs/vue-admin-tab';
+import { useTabStore, useThemeStore } from '@/store';
+import { ContextMenu } from './components';
 
 defineOptions({ name: 'TabDetail' });
 

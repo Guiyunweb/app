@@ -13,9 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import {dateZhCN, zhCN} from 'naive-ui';
-import {subscribeStore, useThemeStore} from '@/store';
-import {useGlobalEvents} from '@/composables';
+import { dateZhCN, zhCN } from 'naive-ui';
+import { subscribeStore, useThemeStore } from '@/store';
+import { useGlobalEvents } from '@/composables';
 
 const theme = useThemeStore();
 

@@ -1,6 +1,6 @@
 import UAParser from 'ua-parser-js';
-import {useAuthStore} from '@/store';
-import {isArray, isString} from '@/utils';
+import { useAuthStore } from '@/store';
+import { isArray, isString } from '@/utils';
 
 interface AppInfo {
   /** 项目名称 */

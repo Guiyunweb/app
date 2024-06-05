@@ -1,6 +1,6 @@
-import {reactive} from 'vue';
-import {defineStore} from 'pinia';
-import {useBoolean} from '@/hooks';
+import { reactive } from 'vue';
+import { defineStore } from 'pinia';
+import { useBoolean } from '@/hooks';
 
 export const useSetupStore = defineStore('setup-store', () => {
   const { bool: visible, setTrue: show, setFalse: hide } = useBoolean();

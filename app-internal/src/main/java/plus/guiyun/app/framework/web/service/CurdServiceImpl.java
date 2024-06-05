@@ -12,7 +12,7 @@ import java.util.List;
 public class CurdServiceImpl<R extends JpaRepository<T, ID>, T, ID> implements CurdService<T, ID> {
 
     @Autowired
-    private R repository;
+    public R repository;
 
     @Override
     public T save(T entity) {

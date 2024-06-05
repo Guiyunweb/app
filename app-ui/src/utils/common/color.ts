@@ -1,6 +1,6 @@
-import type {HsvColor} from 'colord';
-import {colord, extend} from 'colord';
+import { colord, extend } from 'colord';
 import mixPlugin from 'colord/plugins/mix';
+import type { HsvColor } from 'colord';
 
 extend([mixPlugin]);
 

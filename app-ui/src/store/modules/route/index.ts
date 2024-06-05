@@ -1,20 +1,20 @@
-import {defineStore} from 'pinia';
-import {constantRoutes, ROOT_ROUTE, router, routes as staticRoutes} from '@/router';
-import {fetchUserRoutes} from '@/service';
+import { defineStore } from 'pinia';
+import { ROOT_ROUTE, constantRoutes, router, routes as staticRoutes } from '@/router';
+import { fetchUserRoutes } from '@/service';
 import {
-	filterAuthRoutesByUserPermission,
-	getCacheRoutes,
-	getConstantRouteNames,
-	localStg,
-	transformAuthRouteToMenu,
-	transformAuthRouteToSearchMenus,
-	transformAuthRouteToVueRoute,
-	transformAuthRouteToVueRoutes,
-	transformRouteNameToRoutePath,
-	transformRoutePathToRouteName
+  localStg,
+  filterAuthRoutesByUserPermission,
+  getCacheRoutes,
+  getConstantRouteNames,
+  transformAuthRouteToVueRoutes,
+  transformAuthRouteToVueRoute,
+  transformAuthRouteToMenu,
+  transformAuthRouteToSearchMenus,
+  transformRouteNameToRoutePath,
+  transformRoutePathToRouteName
 } from '@/utils';
-import {useAuthStore} from '../auth';
-import {useTabStore} from '../tab';
+import { useAuthStore } from '../auth';
+import { useTabStore } from '../tab';
 
 interface RouteState {
   /**
@@ -114,7 +114,7 @@ export const useRouteStore = defineStore('route-store', {
         throw new Error('userId 不能为空!');
       }
 
-      const { error, data } = await fetchUserRoutes(id);
+      const { error, data } = await fetchUserRoutes();
 
       if (!error) {
         this.routeHomeName = data.home;

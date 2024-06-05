@@ -8,9 +8,9 @@
 </template>
 
 <script lang="ts" setup>
-import type {DropdownOption} from 'naive-ui';
-import {useAuthStore, useThemeStore} from '@/store';
-import {useIconRender} from '@/composables';
+import type { DropdownOption } from 'naive-ui';
+import { useAuthStore, useThemeStore } from '@/store';
+import { useIconRender } from '@/composables';
 
 defineOptions({ name: 'UserAvatar' });
 

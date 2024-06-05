@@ -1,6 +1,6 @@
-import {computed} from 'vue';
-import {breakpointsTailwind, useBreakpoints} from '@vueuse/core';
-import {useAppStore, useThemeStore} from '@/store';
+import { computed } from 'vue';
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core';
+import { useAppStore, useThemeStore } from '@/store';
 
 type LayoutMode = 'vertical' | 'horizontal';
 type LayoutHeaderProps = Record<EnumType.ThemeLayoutMode, App.GlobalHeaderProps>;

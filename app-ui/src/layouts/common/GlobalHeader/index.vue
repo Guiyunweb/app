@@ -16,17 +16,17 @@
 </template>
 
 <script setup lang="ts">
-import {useThemeStore} from '@/store';
-import {useBasicLayout} from '@/composables';
+import { useThemeStore } from '@/store';
+import { useBasicLayout } from '@/composables';
 import GlobalLogo from '../GlobalLogo/index.vue';
 import {
-	FullScreen,
-	GlobalBreadcrumb,
-	HeaderMenu,
-	MenuCollapse,
-	SettingButton,
-	ThemeMode,
-	UserAvatar
+  FullScreen,
+  GlobalBreadcrumb,
+  HeaderMenu,
+  MenuCollapse,
+  SettingButton,
+  ThemeMode,
+  UserAvatar
 } from './components';
 
 defineOptions({ name: 'GlobalHeader' });

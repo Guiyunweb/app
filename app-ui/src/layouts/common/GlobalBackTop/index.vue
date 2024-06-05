@@ -3,8 +3,8 @@
 </template>
 
 <script lang="ts" setup>
-import {computed} from 'vue';
-import {useWindowScroll} from '@vueuse/core';
+import { computed } from 'vue';
+import { useWindowScroll } from '@vueuse/core';
 
 defineOptions({ name: 'GlobalBackTop' });
 

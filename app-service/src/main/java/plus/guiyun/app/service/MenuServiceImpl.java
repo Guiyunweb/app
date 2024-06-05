@@ -1,12 +1,12 @@
 package plus.guiyun.app.service;
 
-import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import plus.guiyun.app.api.MenuService;
 import plus.guiyun.app.api.vo.MenuTree;
+import plus.guiyun.app.api.vo.MetaVO;
+import plus.guiyun.app.api.vo.RouteVO;
 import plus.guiyun.app.domain.MenuDO;
 import plus.guiyun.app.framework.web.service.CurdServiceImpl;
 import plus.guiyun.app.repository.MenuRepository;
@@ -18,19 +18,21 @@ import java.util.Objects;
 @Service
 public class MenuServiceImpl extends CurdServiceImpl<MenuRepository, MenuDO, Long> implements MenuService {
 
-    @Autowired
-    private MenuRepository repository;
 
-    public List<MenuTree> getMenuTree() {
+    public RouteVO getMenuTree() {
         Sort sort = Sort.by("sortBy");
         List<MenuDO> list = repository.findAll(sort);
         List<MenuTree> rootList = getRootMenuList(list); // 获取根菜单列表
-        if (rootList != null) {
+        if (!ObjectUtils.isEmpty(rootList)) {
             for (MenuTree rootMenu : rootList) {
                 buildMenuTree(rootMenu, list); // 递归构建菜单树
             }
         }
-        return rootList;
+
+        RouteVO route = new RouteVO();
+        route.setHome("dashboard_workbench");
+        route.setRoutes(rootList);
+        return route;
     }
 
     @Override
@@ -49,6 +51,7 @@ public class MenuServiceImpl extends CurdServiceImpl<MenuRepository, MenuDO, Lon
             for (MenuTree childMenu : childList) {
                 buildMenuTree(childMenu, list); // 递归构建菜单树
             }
+            parentMenu.setComponent("basic");
             parentMenu.setChildren(childList); // 设置父菜单的子菜单
         }
     }
@@ -63,8 +66,7 @@ public class MenuServiceImpl extends CurdServiceImpl<MenuRepository, MenuDO, Lon
         List<MenuTree> trees = new ArrayList<>();
         for (MenuDO menu : list) {
             if (Objects.equals(menu.getParentId(), parentId)) {
-                MenuTree tree = new MenuTree();
-                BeanUtils.copyProperties(menu, tree);
+                MenuTree tree = menuToMenutree(menu);
                 trees.add(tree);
             }
         }
@@ -80,12 +82,30 @@ public class MenuServiceImpl extends CurdServiceImpl<MenuRepository, MenuDO, Lon
         List<MenuTree> trees = new ArrayList<>();
         for (MenuDO menu : list) {
             if (ObjectUtils.isEmpty(menu.getParentId())) {
-                MenuTree tree = new MenuTree();
-                BeanUtils.copyProperties(menu, tree);
+                MenuTree tree = menuToMenutree(menu);
                 trees.add(tree);
             }
         }
         return trees;
     }
+
+    MenuTree menuToMenutree(MenuDO menu) {
+        MenuTree tree = new MenuTree();
+        MetaVO meta = new MetaVO();
+
+        // 菜单基础
+        tree.setId(menu.getId());
+        tree.setName(menu.getName());
+        tree.setPath(menu.getPath());
+        tree.setComponent("self");
+
+        meta.setTitle(menu.getTitle());
+        meta.setRequiresAuth(true);
+        meta.setIcon(menu.getIcon());
+
+        tree.setMeta(meta);
+        return tree;
+    }
+
 }
 

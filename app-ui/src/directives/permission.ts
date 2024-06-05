@@ -1,5 +1,5 @@
-import type {App, Directive} from 'vue';
-import {usePermission} from '@/composables';
+import type { App, Directive } from 'vue';
+import { usePermission } from '@/composables';
 
 export default function setupPermissionDirective(app: App) {
   const { hasPermission } = usePermission();

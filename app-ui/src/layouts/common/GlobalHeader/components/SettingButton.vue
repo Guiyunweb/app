@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import {useAppStore, useThemeStore} from '@/store';
+import { useAppStore, useThemeStore } from '@/store';
 
 defineOptions({ name: 'SettingButton' });
 

@@ -1,6 +1,6 @@
-import type {Router} from 'vue-router';
-import {useTitle} from '@vueuse/core';
-import {createPermissionGuard} from './permission';
+import type { Router } from 'vue-router';
+import { useTitle } from '@vueuse/core';
+import { createPermissionGuard } from './permission';
 
 /**
  * 路由守卫函数

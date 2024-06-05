@@ -1,4 +1,4 @@
-import type {RouteRecordRaw} from 'vue-router';
+import type { RouteRecordRaw } from 'vue-router';
 
 /**
  * 获取缓存的路由对应组件的名称

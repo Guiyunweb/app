@@ -8,6 +8,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 import plus.guiyun.app.common.code.domain.AjaxResult;
 import plus.guiyun.app.common.constant.HttpStatus;
+import plus.guiyun.app.common.exception.ServiceException;
 import plus.guiyun.app.common.utils.ServletUtils;
 
 import java.io.IOException;
@@ -19,6 +20,7 @@ public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint, S
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
         AjaxResult resultData = resultData = AjaxResult.showError("认证失败，请重新登录", HttpStatus.UNAUTHORIZED);
-        ServletUtils.renderString(response, resultData.toString());
+        response.setStatus(HttpStatus.UNAUTHORIZED);
+        ServletUtils.renderStringAndStatus(response, resultData.toString(),HttpStatus.UNAUTHORIZED);
     }
 }

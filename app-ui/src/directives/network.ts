@@ -1,5 +1,5 @@
-import type {App, Directive} from 'vue';
-import {NETWORK_ERROR_MSG} from '@/config';
+import type { App, Directive } from 'vue';
+import { NETWORK_ERROR_MSG } from '@/config';
 
 export default function setupNetworkDirective(app: App) {
   function listenerHandler(event: MouseEvent) {

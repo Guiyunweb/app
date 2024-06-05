@@ -34,16 +34,16 @@
 
 <script setup lang="ts">
 import AdminLayout from '@soybeanjs/vue-admin-layout';
-import {useAppStore, useThemeStore} from '@/store';
-import {useBasicLayout} from '@/composables';
+import { useAppStore, useThemeStore } from '@/store';
+import { useBasicLayout } from '@/composables';
 import {
-	GlobalBackTop,
-	GlobalContent,
-	GlobalFooter,
-	GlobalHeader,
-	GlobalSider,
-	GlobalTab,
-	SettingDrawer
+  GlobalBackTop,
+  GlobalContent,
+  GlobalFooter,
+  GlobalHeader,
+  GlobalSider,
+  GlobalTab,
+  SettingDrawer
 } from '../common';
 
 defineOptions({ name: 'BasicLayout' });

@@ -95,6 +95,28 @@ public class ServletUtils {
     }
 
     /**
+     * 将字符串和状态码渲染到客户端
+     *
+     * @param response 渲染对象
+     * @param string 待渲染的字符串
+     * @param status 状态码
+     */
+    public static void renderStringAndStatus(HttpServletResponse response, String string,int status)
+    {
+        try
+        {
+            response.setStatus(status);
+            response.setContentType("application/json");
+            response.setCharacterEncoding("utf-8");
+            response.getWriter().print(string);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * 将字符串渲染到客户端
      *
      * @param response 渲染对象

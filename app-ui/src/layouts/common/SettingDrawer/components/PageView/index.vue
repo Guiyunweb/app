@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts" setup>
-import {useThemeStore} from '@/store';
+import { useThemeStore } from '@/store';
 import SettingMenu from '../SettingMenu/index.vue';
 
 defineOptions({ name: 'PageView' });

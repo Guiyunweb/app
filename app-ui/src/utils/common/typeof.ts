@@ -1,4 +1,4 @@
-import {EnumDataType} from '@/enum';
+import { EnumDataType } from '@/enum';
 
 export function isNumber<T extends number>(data: T | unknown): data is T {
   return Object.prototype.toString.call(data) === EnumDataType.number;

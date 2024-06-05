@@ -1,4 +1,4 @@
-import {useIconRender} from '@/composables';
+import { useIconRender } from '@/composables';
 
 /**
  * 将权限路由转换成菜单

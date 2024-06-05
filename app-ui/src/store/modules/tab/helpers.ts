@@ -1,5 +1,5 @@
-import type {RouteLocationNormalizedLoaded, RouteRecordNormalized} from 'vue-router';
-import {localStg} from '@/utils';
+import type { RouteLocationNormalizedLoaded, RouteRecordNormalized } from 'vue-router';
+import { localStg } from '@/utils';
 
 /**
  * 根据vue路由获取tab路由

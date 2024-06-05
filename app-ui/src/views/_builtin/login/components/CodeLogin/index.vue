@@ -35,12 +35,12 @@
 </template>
 
 <script setup lang="ts">
-import {reactive, ref} from 'vue';
-import type {FormInst} from 'naive-ui';
-import {useAuthStore} from '@/store';
-import {useRouterPush} from '@/composables';
-import {useSmsCode} from '@/hooks';
-import {formRules, getImgCodeRule} from '@/utils';
+import { reactive, ref } from 'vue';
+import type { FormInst } from 'naive-ui';
+import { useAuthStore } from '@/store';
+import { useRouterPush } from '@/composables';
+import { useSmsCode } from '@/hooks';
+import { formRules, getImgCodeRule } from '@/utils';
 
 const auth = useAuthStore();
 const { toLoginModule } = useRouterPush();

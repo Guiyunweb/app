@@ -1,5 +1,5 @@
-import {nextTick} from 'vue';
-import {defineStore} from 'pinia';
+import { nextTick } from 'vue';
+import { defineStore } from 'pinia';
 
 interface AppState {
   /** 重载页面(控制页面的显示) */

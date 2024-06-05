@@ -7,6 +7,7 @@ export const views: Record<RouterPage.LastDegreeRouteKey, RouteComponent | (() =
   'constant-page': () => import('./_builtin/constant-page/index.vue'),
   login: () => import('./_builtin/login/index.vue'),
   'not-found': () => import('./_builtin/not-found/index.vue'),
+  dashboard_workbench: () => import('./dashboard/workbench/index.vue'),
   'multi-menu_first_second-new_third': () => import('./multi-menu/first/second-new/third/index.vue'),
   'multi-menu_first_second': () => import('./multi-menu/first/second/index.vue')
 };

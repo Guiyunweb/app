@@ -29,8 +29,8 @@
 </template>
 
 <script setup lang="ts">
-import {computed, ref} from 'vue';
-import {routeName} from '@/router';
+import { ref, computed } from 'vue';
+import { routeName } from '@/router';
 
 const routeHomePath = routeName('root');
 

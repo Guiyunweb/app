@@ -44,4 +44,6 @@ public class MenuDO extends BaseEntity {
      */
     private String title;
 
+    private String icon;
+
 }

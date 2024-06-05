@@ -1,6 +1,13 @@
 {
   "name": "app-ui",
-  "version": "1.0.0",
+  "version": "0.0.1-SNAPSHOT",
+  "description": "app 前台代码",
+  "author": {
+    "name": "Guiyun",
+    "email": "i@guiyunweb.com",
+    "url": "https://github.com/guiyunweb"
+  },
+  "license": "MIT",
   "keywords": [
     "Vue",
     "Vue3",
