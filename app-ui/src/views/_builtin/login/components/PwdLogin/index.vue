@@ -40,7 +40,7 @@ import { reactive, ref } from 'vue';
 import type { FormInst, FormRules } from 'naive-ui';
 // import { EnumLoginModule } from '@/enum';
 import { useAuthStore } from '@/store';
-import { useRouterPush } from '@/composables';
+// import { useRouterPush } from '@/composables';
 import { formRules } from '@/utils';
 // import { OtherAccount } from './components';
 
