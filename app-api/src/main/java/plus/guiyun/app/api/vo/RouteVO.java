@@ -10,7 +10,6 @@ import java.util.List;
 public class RouteVO {
 
     private String home;
-    private String path;
 
     private List<MenuTree> routes;
 

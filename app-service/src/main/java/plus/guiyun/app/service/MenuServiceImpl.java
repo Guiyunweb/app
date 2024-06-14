@@ -93,15 +93,20 @@ public class MenuServiceImpl extends CurdServiceImpl<MenuRepository, MenuDO, Lon
         MenuTree tree = new MenuTree();
         MetaVO meta = new MetaVO();
 
+        String route = menu.getRoute();
+        String name = menu.getRoute().replaceFirst("/","").replace("/","_");
+
         // 菜单基础
         tree.setId(menu.getId());
-        tree.setName(menu.getName());
-        tree.setPath(menu.getPath());
         tree.setComponent("self");
+        tree.setPath(route);
+        tree.setName(name);
 
         meta.setTitle(menu.getTitle());
-        meta.setRequiresAuth(true);
+        meta.setRequiresAuth(menu.isRequiresAuth());
         meta.setIcon(menu.getIcon());
+        meta.setOrder(menu.getSortBy());
+
 
         tree.setMeta(meta);
         return tree;

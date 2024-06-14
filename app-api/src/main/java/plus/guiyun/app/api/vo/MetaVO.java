@@ -10,5 +10,6 @@ public class MetaVO {
     private String title;
     private boolean requiresAuth;
     private String icon;
+    private Long order;
 
 }

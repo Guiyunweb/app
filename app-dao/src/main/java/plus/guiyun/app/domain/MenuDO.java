@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 import plus.guiyun.app.framework.web.domain.BaseEntity;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -16,34 +18,27 @@ public class MenuDO extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /**
-     * 路由的标识，必填且与页面组件的name一致
-     */
-    @NotNull(message = "菜单名不能为空")
-    private String name;
+    private String route;
 
-    /**
-     * 路由在游览器地址栏里的hash值，也就是说这个路由要用什么URL地址来访问。
-     */
-    private String path;
-
-    /**
-     * 加载的页面组件位置，系统将自动组装成 () => import('@/views/home') 的形式。
-     */
     private String component;
 
-//    private String meta;
+    /** 路由标题(可用来作document.title或者菜单的名称) */
+    private String title;
 
-    private Long parentId;
+    /** 需要登录权限 */
+    private boolean requiresAuth;
+
+
+    /**哪些类型的用户有权限才能访问的路由**/
+    private String permissions;
+
+    /** 菜单和面包屑对应的图标 */
+    private String icon;
+
+    private String keepAlive;
 
     private Long sortBy;
 
-
-    /**
-     * 菜单
-     */
-    private String title;
-
-    private String icon;
+    private Long parentId;
 
 }
