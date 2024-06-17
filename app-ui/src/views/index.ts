@@ -9,5 +9,7 @@ export const views: Record<RouterPage.LastDegreeRouteKey, RouteComponent | (() =
   'not-found': () => import('./_builtin/not-found/index.vue'),
   dashboard_workbench: () => import('./dashboard/workbench/index.vue'),
   'multi-menu_first_second-new_third': () => import('./multi-menu/first/second-new/third/index.vue'),
-  'multi-menu_first_second': () => import('./multi-menu/first/second/index.vue')
+  'multi-menu_first_second': () => import('./multi-menu/first/second/index.vue'),
+  system_menu: () => import('./system/menu/index.vue'),
+  system_test: () => import('./system/test/index.vue')
 };

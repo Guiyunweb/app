@@ -19,8 +19,11 @@ declare namespace RouterPage {
     | 'multi-menu_first_second'
     | 'multi-menu_first_second-new'
     | 'multi-menu_first_second-new_third'
-    | 'not-found';
+    | 'not-found'
+    | 'system'
+    | 'system_menu'
+    | 'system_test';
 
   /** 最后一级路由(该级路有对应的vue文件) */
-  type LastDegreeRouteKey = Extract<RouteKey, '403' | '404' | '500' | 'constant-page' | 'dashboard_workbench' | 'login' | 'multi-menu_first_second' | 'multi-menu_first_second-new_third' | 'not-found'>
+  type LastDegreeRouteKey = Extract<RouteKey, '403' | '404' | '500' | 'constant-page' | 'dashboard_workbench' | 'login' | 'multi-menu_first_second' | 'multi-menu_first_second-new_third' | 'not-found' | 'system_menu' | 'system_test'>
 }
