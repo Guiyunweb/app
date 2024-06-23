@@ -18,11 +18,11 @@
         :placeholder="item.placeholder ? item.placeholder : `请输入` + item.name"
       />
 
-      <n-radio-group v-else-if="item.type === `radio`" v-model:value="form[item.name]">
-        <n-radio v-for="song in item.select" :key="song.value" :value="song.value" :checked="song.checked">
-          {{ song.label }}
-        </n-radio>
-      </n-radio-group>
+<!--      <n-radio-group v-else-if="item.type === `radio`" v-model:value="form[item.name]">-->
+<!--        <n-radio v-for="song in item.select" :key="song.value" :value="song.value">-->
+<!--          {{ song.label }}-->
+<!--        </n-radio>-->
+<!--      </n-radio-group>-->
 
       <n-select
         v-else-if="item.type === `select`"
@@ -44,17 +44,6 @@ const props = defineProps<{
   form: any;
   option: From.Option;
 }>();
-
-const sel = ref([
-  {
-    label: '男',
-    value: 1
-  },
-  {
-    label: '女',
-    value: 0
-  }
-]);
 
 const emit = defineEmits(['update:form']);
 

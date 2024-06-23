@@ -1,4 +1,5 @@
 import type { LabelPlacement } from 'naive-ui/es/form/src/interface';
+import type { SelectMixedOption } from 'naive-ui/es/select/src/interface';
 
 declare namespace From {
   interface Option {
@@ -12,14 +13,9 @@ declare namespace From {
     type: 'textarea' | 'text' | 'password' | 'number' | 'radio' | 'select';
     placeholder?: string;
     notNull?: boolean;
-    select?: Select[];
+    select?: SelectMixedOption[];
   }
   interface Rules {
     [key: string]: any;
-  }
-  interface Select {
-    label: string;
-    value: any;
-    checked?: boolean;
   }
 }
