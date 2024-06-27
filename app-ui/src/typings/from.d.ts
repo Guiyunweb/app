@@ -14,8 +14,14 @@ declare namespace From {
     placeholder?: string;
     notNull?: boolean;
     select?: SelectMixedOption[];
+    radio?: Radio[];
+    labelWidth?: number;
   }
   interface Rules {
     [key: string]: any;
+  }
+  interface Radio {
+    label: string;
+    value: string | number;
   }
 }

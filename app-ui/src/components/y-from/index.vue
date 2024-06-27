@@ -18,19 +18,18 @@
         :placeholder="item.placeholder ? item.placeholder : `请输入` + item.name"
       />
 
-<!--      <n-radio-group v-else-if="item.type === `radio`" v-model:value="form[item.name]">-->
-<!--        <n-radio v-for="song in item.select" :key="song.value" :value="song.value">-->
-<!--          {{ song.label }}-->
-<!--        </n-radio>-->
-<!--      </n-radio-group>-->
+      <n-radio-group v-else-if="item.type === `radio`" v-model:value="form[item.name]">
+        <n-radio v-for="song in item.radio" :key="song.value" :value="song.value">
+          {{ song.label }}
+        </n-radio>
+      </n-radio-group>
 
       <n-select
         v-else-if="item.type === `select`"
         v-model:value="form[item.name]"
-        :placeholder="item.placeholder"
         :options="item.select"
-        clearable
-      ></n-select>
+        :style="{ width: item.labelWidth ? item.labelWidth + 'px' : '200px' }"
+      />
     </n-form-item>
   </n-form>
 </template>
