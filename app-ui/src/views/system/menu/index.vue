@@ -1,9 +1,11 @@
 <template>
-  <div class="h-full">
-    <n-card title="菜单管理" class="h-full shadow-sm rounded-16px"></n-card>
-  </div>
+  <n-form-item label="姓名" path="user.name" label-placement="top" label-align="left">
+    <n-input v-model:value="formValue" placeholder="输入姓名" />
+  </n-form-item>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts" setup>
+import { ref } from 'vue';
 
-<style scoped></style>
+const formValue = ref();
+</script>

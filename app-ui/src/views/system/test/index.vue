@@ -1,9 +1,7 @@
 <template>
   <div class="h-full">
-    <n-card title="测试" class="h-full shadow-sm rounded-16px">
-      <y-from v-model:form="from" :option="option"></y-from>
-      {{ from }}
-      <n-button type="primary" @click="submit"> Primary </n-button>
+    <n-card class="h-full shadow-sm rounded-16px">
+      <y-crud :option="option" :form="from" />
     </n-card>
   </div>
 </template>
@@ -25,6 +23,18 @@ const option: From.Option = reactive({
       label: '年龄',
       name: 'age',
       type: 'number',
+      placeholder: '请输入XXX'
+    },
+    {
+      label: '生日',
+      name: 'birthday',
+      type: 'date',
+      placeholder: '请输入XXX'
+    },
+    {
+      label: '申请时间',
+      name: 'applyTime',
+      type: 'daterange',
       placeholder: '请输入XXX'
     },
     {
@@ -65,11 +75,7 @@ const option: From.Option = reactive({
   ]
 });
 
-const from = ref({});
-
-function submit() {
-  console.log(from.value);
-}
+const from = ref();
 </script>
 
 <style scoped></style>

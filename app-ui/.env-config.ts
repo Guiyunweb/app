@@ -4,9 +4,9 @@ type ServiceEnv = Record<ServiceEnvType, ServiceEnvConfig>;
 /** 不同请求服务的环境配置 */
 const serviceEnv: ServiceEnv = {
   dev: {
-    url: 'http://localhost:8089',
+    url: 'http://app.test.guiyunweb.com/api/',
     urlPattern: '/url-pattern',
-    secondUrl: 'http://localhost:8089',
+    secondUrl: 'http://app.test.guiyunweb.com/api/',
     secondUrlPattern: '/second-url-pattern'
   },
   test: {

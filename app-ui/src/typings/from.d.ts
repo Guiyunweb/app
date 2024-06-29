@@ -10,7 +10,7 @@ declare namespace From {
   interface Column {
     label: string;
     name: string;
-    type: 'textarea' | 'text' | 'password' | 'number' | 'radio' | 'select';
+    type: 'textarea' | 'text' | 'password' | 'number' | 'radio' | 'select' | 'date' | 'daterange';
     placeholder?: string;
     notNull?: boolean;
     select?: SelectMixedOption[];
