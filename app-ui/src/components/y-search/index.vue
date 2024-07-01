@@ -10,7 +10,7 @@
       <n-input
         v-if="item.type === `text` || item.type === `password` || item.type === `textarea`"
         v-model="form[item.name]"
-        type="text"
+        :type="item.type"
         :placeholder="item.placeholder ? item.placeholder : `请输入` + item.name"
       />
 

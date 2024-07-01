@@ -14,16 +14,16 @@ const option: From.Option = reactive({
   inline: true,
   column: [
     {
-      label: '姓名',
-      name: 'name',
-      type: 'text',
-      notNull: true
-    },
-    {
       label: '年龄',
       name: 'age',
       type: 'number',
       placeholder: '请输入XXX'
+    },
+    {
+      label: '姓名',
+      name: 'name',
+      type: 'text',
+      notNull: true
     },
     {
       label: '生日',
