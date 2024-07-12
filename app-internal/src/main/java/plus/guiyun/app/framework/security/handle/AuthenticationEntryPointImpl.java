@@ -8,7 +8,6 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 import plus.guiyun.app.common.code.domain.AjaxResult;
 import plus.guiyun.app.common.constant.HttpStatus;
-import plus.guiyun.app.common.exception.ServiceException;
 import plus.guiyun.app.common.utils.ServletUtils;
 
 import java.io.IOException;

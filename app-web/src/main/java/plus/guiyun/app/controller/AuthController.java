@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import plus.guiyun.app.api.UserService;
+import plus.guiyun.app.api.vo.UserInfoVo;
 import plus.guiyun.app.common.code.domain.AjaxResult;
 import plus.guiyun.app.common.code.domain.model.LoginBody;
-import plus.guiyun.app.common.code.domain.model.LoginUser;
 import plus.guiyun.app.common.code.redis.RedisCache;
 import plus.guiyun.app.framework.config.TokenConfig;
 import plus.guiyun.app.framework.web.service.TokenService;
@@ -29,9 +29,8 @@ public class AuthController {
     RedisCache redisCache;
 
     @RequestMapping("/login")
-    public AjaxResult<LoginUser> getUserName(@RequestBody @Valid LoginBody loginBody) {
-        LoginUser loginUser = userService.login(loginBody.getAccount(), loginBody.getPassword());
-        return AjaxResult.success(loginUser, "登录成功");
+    public AjaxResult<UserInfoVo> getUserName(@RequestBody @Valid LoginBody loginBody) {
+        return userService.login(loginBody.getAccount(), loginBody.getPassword());
     }
 
     @GetMapping("/updateToken")

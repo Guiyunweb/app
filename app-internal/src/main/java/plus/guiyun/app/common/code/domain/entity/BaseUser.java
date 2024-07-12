@@ -28,4 +28,9 @@ public class BaseUser extends BaseEntity {
      */
     private String password;
 
+    /**
+     * 角色等级
+     */
+    private Integer roleId;
+
 }

@@ -85,4 +85,12 @@ public class CurdController<S extends CurdService<T, ID>, T, ID> {
         return redisCache.getCacheObject(uuid);
     }
 
+    public Long getUserId() {
+        HttpServletRequest request = ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes()))
+                .getRequest();
+        String uuid = TokenService.getLoginUUID(request);
+        LoginUser loginUser =  redisCache.getCacheObject(uuid);
+        return loginUser.getId();
+    }
+
 }

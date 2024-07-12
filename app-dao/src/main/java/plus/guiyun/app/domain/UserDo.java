@@ -30,4 +30,6 @@ public class UserDo extends BaseEntity {
      */
     private String password;
 
+    private Integer roleId;
+
 }

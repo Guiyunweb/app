@@ -1,12 +1,9 @@
 package plus.guiyun.app.domain;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import plus.guiyun.app.framework.web.domain.BaseEntity;
-
-import java.util.List;
 
 @Getter
 @Setter

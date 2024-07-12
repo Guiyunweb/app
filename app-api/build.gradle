@@ -16,6 +16,10 @@ configurations {
 }
 
 repositories {
+    mavenLocal()
+    maven {
+        url "https://mirrors.huaweicloud.com/repository/"
+    }
     mavenCentral()
 }
 

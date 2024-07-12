@@ -61,6 +61,10 @@ public class AjaxResult<T> {
         return new AjaxResult<T>(true, HttpStatus.SUCCESS, "请求成功", null, traceID(), false, false);
     }
 
+    public static <T> AjaxResult<T> success(String message) {
+        return new AjaxResult<T>(true, HttpStatus.SUCCESS, message, null, traceID(), false, false);
+    }
+
     public static <T> AjaxResult<T> success(T data) {
         return new AjaxResult<T>(true, HttpStatus.SUCCESS, "请求成功", data, traceID(), false, false);
     }
